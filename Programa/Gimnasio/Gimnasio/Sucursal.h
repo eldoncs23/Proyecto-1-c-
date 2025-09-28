@@ -31,9 +31,10 @@ public:
     Cliente* buscarCliente(const string& cedula) const;
     void eliminarCliente(const string& cedula);
     void listarClientes() const;
-
+    
     // Getters
     string getCodigo() const { return codigo; }
+    string getNombre() const { return nombre; }
     string getDireccion() const { return direccion; }
     int getCantInstructores() const { return cantInstructores; }
     int getCantClientes() const { return cantClientes; }

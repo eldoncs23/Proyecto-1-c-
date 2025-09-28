@@ -1,73 +1,106 @@
 #include <iostream>
+#include "Gimnasio.h"
 #include "Sucursal.h"
 #include "Instructor.h"
 #include "Cliente.h"
 #include "Reporte.h"
-
+#include <locale> //agregar caracteres
 using namespace std;
 
 int main() {
+    setlocale(LC_ALL, ""); //arregla caracteres
     cout << "===== PRUEBA DEL SISTEMA DE GIMNASIO =====\n";
 
-    // 1) Crear sucursal
-    Sucursal* suc = new Sucursal("5001","Sucursal Eldon", "Heredia, Central");
-    cout << "Sucursal creada: S001 - Sucursal Eldon , Heredia Central\n\n";
+    // 1) Crear gimnasio
+    Gimnasio* gym = new Gimnasio("PowerLab");
+    cout << "Gimnasio creado: " << "PowerLab" << "\n\n";
 
-    // 2) Crear instructor y agregarlo a la sucursal
-    string esp[2] = { "Cardio", "Musculacion" };
-    Instructor* inst = new Instructor("Carlos Perez", "123", "8888-9999", "carlos@mail.com", "1985-06-15", esp, 2);
-    suc->agregarInstructor(inst);
+    // 2) Crear sucursales y agregarlas al gimnasio
+    Sucursal* suc1 = new Sucursal("5001","Sucursal tray", "Sucursal Central");
+    Sucursal* suc2 = new Sucursal("S002","Sucursal eldon", "Sucursal Norte");
+    gym->agregarSucursal(suc1);
+    gym->agregarSucursal(suc2);
 
-    cout << "Instructor agregado:\n";
-    inst->mostrar();
+    cout << "Sucursales registradas:\n";
+    gym->mostrarSucursales();
     cout << endl;
 
-    // 3) Crear cliente con sexo y fecha de inscripción y agregarlo a la sucursal
-    Cliente* cli = new Cliente("Ana Gomez", "456", "7777-5555", "ana@mail.com", "1990-01-20", "Femenino", "2025-09-28");
-    suc->agregarCliente(cli);
+    // 3) Crear instructores y agregarlos a sucursales
+    string esp1[2] = { "Cardio", "Musculacion" };
+    Instructor* inst1 = new Instructor("Carlos Perez", "123", "8888-9999", "carlos@mail.com", "1985-06-15", esp1, 2);
+    suc1->agregarInstructor(inst1);
 
-    cout << "Cliente agregado:\n";
-    cli->mostrar();
+    string esp2[3] = { "Yoga", "TRX", "Zumba" };
+    Instructor* inst2 = new Instructor("Maria Lopez", "124", "7777-8888", "maria@mail.com", "1990-09-10", esp2, 3);
+    suc2->agregarInstructor(inst2);
+
+    // Listar instructores de cada sucursal
+    cout << "\nInstructores en Sucursal Central:\n";
+    suc1->listarInstructores();
+
+    cout << "\nInstructores en Sucursal Norte:\n";
+    suc2->listarInstructores();
     cout << endl;
 
-    // 4) Crear un reporte y asignarlo al cliente mediante el instructor
+    // 4) Crear clientes y agregarlos a sucursales
+    Cliente* cli1 = new Cliente("Ana Gomez", "456", "7777-5555", "ana@mail.com", "1990-01-20", "Femenino", "2025-09-28");
+    Cliente* cli2 = new Cliente("Juan Perez", "457", "6666-4444", "juan@mail.com", "1988-03-15", "Masculino", "2025-09-28");
+    suc1->agregarCliente(cli1);
+    suc2->agregarCliente(cli2);
+
+    // Listar clientes
+    cout << "Clientes en Sucursal Central:\n";
+    suc1->listarClientes();
+    cout << "\nClientes en Sucursal Norte:\n";
+    suc2->listarClientes();
+    cout << endl;
+
+    // 5) Crear reportes y agregarlos al historial de clientes
     Reporte* rep1 = new Reporte(65.0, 1.65, 35, "Femenino", true);
-    cout << "Asignando reporte al cliente...\n";
-    inst->agregarReporteAHistorial(cli, rep1);
+    inst1->agregarReporteAHistorial(cli1, rep1);
 
-    // 5) Mostrar historial del cliente
-    cout << "\nHistorial del cliente tras agregar reporte:\n";
-    cli->mostrarHistorial();
+    Reporte* rep2 = new Reporte(80.0, 1.75, 37, "Masculino", false);
+    inst2->agregarReporteAHistorial(cli2, rep2);
 
-    // 6) Crear rutina dinámica basada en último reporte
-    cout << "\nCreando rutina para cliente...\n";
-    inst->crearRutina(cli);
+    cout << "\nHistorial de Ana Gomez:\n";
+    cli1->mostrarHistorial();
 
-    // 7) Mostrar rutina generada
-    cout << "\nRutina generada:\n";
-    cli->mostrarRutina();
+    cout << "\nHistorial de Juan Perez:\n";
+    cli2->mostrarHistorial();
 
-    // 8) Probar eliminación de un reporte
-    cout << "\nEliminando primer reporte del historial...\n";
-    inst->eliminarReporteHistorial(cli, 0);
+    // 6) Crear rutinas basadas en último reporte
+    inst1->crearRutina(cli1);
+    inst2->crearRutina(cli2);
 
-    cout << "Historial después de eliminar:\n";
-    cli->mostrarHistorial();
+    cout << "\nRutina de Ana Gomez:\n";
+    cli1->mostrarRutina();
 
-    // 9) Agregar dos reportes más y vaciar historial
-    cout << "\nAgregando dos reportes más...\n";
-    inst->agregarReporteAHistorial(cli, new Reporte(80, 1.70, 30, "Femenino", false));
-    inst->agregarReporteAHistorial(cli, new Reporte(75, 1.70, 30, "Femenino", true));
+    cout << "\nRutina de Juan Perez:\n";
+    cli2->mostrarRutina();
 
-    cout << "\nHistorial actual:\n";
-    cli->mostrarHistorial();
+    // 7) Probar eliminar un reporte
+    cout << "\nEliminando primer reporte de Ana Gomez...\n";
+    inst1->eliminarReporteHistorial(cli1, 0);
+    cli1->mostrarHistorial();
 
-    cout << "\nVaciando historial...\n";
-    inst->vaciarHistorial(cli);
-    cli->mostrarHistorial();
+    // 8) Probar vaciar historial de Juan Perez
+    cout << "\nVaciando historial de Juan Perez...\n";
+    inst2->vaciarHistorial(cli2);
+    cli2->mostrarHistorial();
 
-    // 10) Limpieza
-    delete suc; // Sucursal se encarga de borrar instructores y clientes
+    // 9) Mostrar todas las sucursales, instructores y clientes
+    cout << "\n=== Estado final del gimnasio ===\n";
+    gym->mostrarSucursales();
+    for (int i = 0; i < 2; i++) {
+        Sucursal* s = (i == 0 ? suc1 : suc2);
+        cout << "\nInstructores en " << s->getNombre() << ":\n";
+        s->listarInstructores();
+        cout << "Clientes en " << s->getNombre() << ":\n";
+        s->listarClientes();
+    }
+
+    // Limpieza: Sucursal destruye instructores y clientes
+    delete gym;
 
     cout << "\n===== FIN DE PRUEBA =====\n";
     return 0;
