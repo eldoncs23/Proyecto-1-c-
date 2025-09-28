@@ -8,6 +8,7 @@ using namespace std;
 class Sucursal {
 private:
 	string codigo;
+    string nombre;
 	string direccion;
 	Instructor** instructores;
 	int cantInstructores;
@@ -16,9 +17,9 @@ private:
 
 public:
     // Constructor / Destructor
-    Sucursal(string cod, string dir);
+    Sucursal(string cod, string n, string dir);
     ~Sucursal();
-
+    void mostrar() const;
     // Métodos de gestión de instructores
     void agregarInstructor(Instructor* inst);
     Instructor* buscarInstructor(const string& cedula) const;

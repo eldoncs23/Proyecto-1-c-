@@ -10,8 +10,8 @@ int main() {
     cout << "===== PRUEBA DEL SISTEMA DE GIMNASIO =====\n";
 
     // 1) Crear sucursal
-    Sucursal* suc = new Sucursal("S001", "Sucursal Central");
-    cout << "Sucursal creada: S001 - Sucursal Central\n\n";
+    Sucursal* suc = new Sucursal("5001","Sucursal Eldon", "Heredia, Central");
+    cout << "Sucursal creada: S001 - Sucursal Eldon , Heredia Central\n\n";
 
     // 2) Crear instructor y agregarlo a la sucursal
     string esp[2] = { "Cardio", "Musculacion" };

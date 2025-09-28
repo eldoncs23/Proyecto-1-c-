@@ -4,8 +4,8 @@
 #include <ctime>
 using namespace std;
 
-Reporte::Reporte(double p, double a, int e, const string& s, bool ejercicio, string f){
-    fecha = f;
+Reporte::Reporte(double p, double a, int e, const string& s, bool ejercicio) {
+    edad = e;
     peso = p;
     altura = a;
     sexo = s;
@@ -16,7 +16,7 @@ Reporte::Reporte(double p, double a, int e, const string& s, bool ejercicio, str
     //cintura = cadera = pecho = muslo = 0.0f;
     imc = peso / (altura * altura);
 }
-float Reporte::getIMC() const {
+double Reporte::getIMC() const {
     return imc;            // imc se inicializa en el constructor/calcularIMC()
 }
 string Reporte::getFecha() const {

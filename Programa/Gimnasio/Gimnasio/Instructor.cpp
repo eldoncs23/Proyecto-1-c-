@@ -89,29 +89,14 @@ void Instructor::agregarReporteAHistorial(Cliente* cli, Reporte* rep) {
     cli->agregarReporte(rep); // delega al cliente
     // También podemos almacenar en historial del instructor si queremos duplicar
 }
-
-void Instructor::eliminarReporteHistorial(int index) {
-    if (index < 0 || index >= cantReportes) return;
-
-    delete historial[index];
-    for (int i = index + 1; i < cantReportes; i++)
-        historial[i - 1] = historial[i];
-    cantReportes--;
-
-    if (cantReportes == 0) {
-        delete[] historial;
-        historial = nullptr;
-    }
+void Instructor::eliminarReporteHistorial(Cliente* cli, int pos) {
+    if (!cli) return;
+    cli->eliminarReporte(pos);
 }
 
-void Instructor::vaciarHistorial() {
-    if (historial) {
-        for (int i = 0; i < cantReportes; i++)
-            delete historial[i];
-        delete[] historial;
-        historial = nullptr;
-        cantReportes = 0;
-    }
+void Instructor::vaciarHistorial(Cliente* cli) {
+    if (!cli) return;
+    cli->vaciarHistorial();
 }
 
 //Manejo de rutinas

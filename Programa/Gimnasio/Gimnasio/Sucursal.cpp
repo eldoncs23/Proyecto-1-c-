@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-Sucursal::Sucursal(string cod, string dir)
-    : codigo(cod), direccion(dir), instructores(nullptr), cantInstructores(0),
+Sucursal::Sucursal(string cod, string n, string dir)
+    : codigo(cod), nombre(n), direccion(dir), instructores(nullptr), cantInstructores(0),
     clientes(nullptr), cantClientes(0) {
 }
 
@@ -117,4 +117,10 @@ void Sucursal::listarClientes() const {
     for (int i = 0; i < cantClientes; i++) {
         clientes[i]->mostrar();
     }
+}
+
+void Sucursal::mostrar() const {
+    cout << "Sucursal: " << codigo << " - " << nombre << "-"<< direccion<< "\n";
+    cout << "Cantidad de instructores: " << cantInstructores << "\n";
+    cout << "Cantidad de clientes: " << cantClientes << "\n";
 }

@@ -50,7 +50,6 @@ public:
     void agregarReporteAHistorial(Cliente* cli, Reporte* rep);
     void eliminarReporteHistorial(Cliente* cli, int pos);
     void vaciarHistorial(Cliente* cli);
-    
 
     //manejo de rutinas
     void crearRutina(Cliente* cli);

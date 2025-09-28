@@ -13,14 +13,14 @@ private:
 	double imc;
 
 public:
-	Reporte(double peso, double altura, int edad, const string& sexo, bool ejercicio, string fecha);
-	float calcularIMC();
+	Reporte(double peso, double altura, int edad, const string& sexo, bool ejercicio);
+	//float calcularIMC();
 	double calcularProteinas(string sexo, bool ejercicio);
 	double calcularAgua();
 	void mostrarReporte();
 	string getFecha() { return fecha; }
 	void setFecha(string& t) { fecha = t; }
 	string getFecha() const;
-	float getIMC() const;
+	double getIMC() const;
 };
 
