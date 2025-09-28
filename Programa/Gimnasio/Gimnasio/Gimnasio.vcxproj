@@ -126,6 +126,7 @@
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Gimnasio.h" />
     <ClInclude Include="Instructor.h" />
+    <ClInclude Include="Interfaz.h" />
     <ClInclude Include="Reporte.h" />
     <ClInclude Include="Sucursal.h" />
   </ItemGroup>
@@ -133,6 +134,7 @@
     <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="Gimnasio.cpp" />
     <ClCompile Include="Instructor.cpp" />
+    <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Reporte.cpp" />
     <ClCompile Include="Sucursal.cpp" />

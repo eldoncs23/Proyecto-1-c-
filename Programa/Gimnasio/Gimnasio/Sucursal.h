@@ -23,10 +23,14 @@ public:
     // Métodos de gestión de instructores
     void agregarInstructor(Instructor* inst);
     Instructor* buscarInstructor(const string& cedula) const;
+
+    Instructor* getInstructor(int indice) const;
     void eliminarInstructor(const string& cedula);
     void listarInstructores() const;
 
     // Métodos de gestión de clientes
+    Cliente* getCliente(int indice) const;
+    int getCantidadClientes() const { return cantClientes; }
     void agregarCliente(Cliente* cli);
     Cliente* buscarCliente(const string& cedula) const;
     void eliminarCliente(const string& cedula);

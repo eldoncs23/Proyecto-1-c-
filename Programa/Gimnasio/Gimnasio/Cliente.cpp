@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 
-Cliente::Cliente(string nom, string ced, string tel, string corr, string fecha, string s, string fi) {
-    cedula = ced;
+Cliente::Cliente(string nom, string ced, string tel, string corr, string fecha, string s, const string& fi) {
     nombre = nom;
+    cedula = ced;
     telefono = tel;
     correo = corr;
     fechaNacimiento = fecha;
@@ -28,10 +28,27 @@ void Cliente::mostrar() const {
 }
 
 
+void Cliente::mostrarHistorial() const {
+    cout << "Historial de reportes del cliente " << nombre << ":\n";
+    if (cantReportes == 0) {
+        cout << "  (sin reportes)\n";
+        return;
+    }
+    for (int i = 0; i < cantReportes; i++) {
+        cout << "Reporte " << (i + 1) << ":\n";
+        historial[i]->mostrarReporte();
+    }
+}
+
+Reporte* Cliente::getUltimoReporte() const {
+    if (cantReportes == 0) return nullptr;
+    return historial[cantReportes - 1];
+}
+
+// Manejo del historial
 void Cliente::agregarReporte(Reporte* rep) {
     Reporte** nuevo = new Reporte * [cantReportes + 1];
-    for (int i = 0; i < cantReportes; i++)
-        nuevo[i] = historial[i];
+    for (int i = 0; i < cantReportes; i++) nuevo[i] = historial[i];
     nuevo[cantReportes] = rep;
 
     if (historial) delete[] historial;
@@ -42,10 +59,8 @@ void Cliente::agregarReporte(Reporte* rep) {
 void Cliente::eliminarReporte(int pos) {
     if (pos < 0 || pos >= cantReportes) return;
 
-    // Elimina el reporte seleccionado
     delete historial[pos];
 
-    // Compacta el arreglo
     Reporte** nuevo = new Reporte * [cantReportes - 1];
     int k = 0;
     for (int i = 0; i < cantReportes; i++) {
@@ -59,39 +74,19 @@ void Cliente::eliminarReporte(int pos) {
 }
 
 void Cliente::vaciarHistorial() {
-    for (int i = 0; i < cantReportes; i++) {
-        delete historial[i];
-    }
+    for (int i = 0; i < cantReportes; i++) delete historial[i];
     delete[] historial;
     historial = nullptr;
     cantReportes = 0;
 }
 
-Reporte* Cliente::getUltimoReporte() const {
-    if (cantReportes == 0) return nullptr;
-    return historial[cantReportes - 1];
-}
-
-void Cliente::mostrarHistorial() const {
-    cout << "Historial de reportes del cliente " << nombre << ":\n";
-    if (cantReportes == 0) {
-        cout << "  (sin reportes)\n";
-        return;
-    }
-    for (int i = 0; i < cantReportes; i++) {
-        cout << "Reporte " << (i + 1) << ":\n";
-        historial[i]->mostrarReporte();
-    }
-}
-
+// Rutinas
 void Cliente::asignarRutina(string* ejercicios, int n) {
     if (rutina) delete[] rutina;
 
     rutina = new string[n];
     cantEjercicios = n;
-    for (int i = 0; i < n; i++) {
-        rutina[i] = ejercicios[i];
-    }
+    for (int i = 0; i < n; i++) rutina[i] = ejercicios[i];
 }
 
 void Cliente::mostrarRutina() const {
@@ -100,7 +95,5 @@ void Cliente::mostrarRutina() const {
         cout << "  (sin rutina asignada)\n";
         return;
     }
-    for (int i = 0; i < cantEjercicios; i++) {
-        cout << "  - " << rutina[i] << endl;
-    }
+    for (int i = 0; i < cantEjercicios; i++) cout << "  - " << rutina[i] << "\n";
 }

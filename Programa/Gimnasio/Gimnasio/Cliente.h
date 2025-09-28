@@ -21,9 +21,9 @@ private:
     int cantEjercicios;
 
 public:
-    Cliente(string nom, string ced, string tel, string corr, string fecha, string fechaInscripcion, string sexo);
+    Cliente(string nom, string ced, string tel, string corr, string fecha, string sexo, const string& fechaInscripcion);
     ~Cliente();
-
+    //mostrar
     void mostrarHistorial() const;
     void mostrar() const;
     //gets
@@ -35,7 +35,9 @@ public:
     string getSexo() const { return sexo; }
     string getFechaInscripcion() const { return fechaInscripcion; }
     int getCantReportes() const { return cantReportes; }
-
+    int getCantEjercicios() const { return cantEjercicios; }
+    string* getRutina() const { return rutina; }
+    Reporte* getUltimoReporte() const;
     //sets
     void setTelefono(const string& t) { telefono = t; }
     void setCorreo(const string& c) { correo = c; }
@@ -48,14 +50,11 @@ public:
     //rutinas 
     void asignarRutina(string* ejercicios, int n);
     void mostrarRutina() const;
-    string* getRutina() const { return rutina; }
-    int getCantEjercicios() const { return cantEjercicios; }
 
     //reporte
-    // --- Gestión del historial (solo el Instructor debería llamarlas) ---
+    // Gestión del historial (solo el Instructor debería llamarlas)
     void agregarReporte(Reporte* rep);
     void eliminarReporte(int pos);   // Elimina un reporte puntual
     void vaciarHistorial();          // Elimina todos los reportes
-    Reporte* getUltimoReporte() const;
 };
 

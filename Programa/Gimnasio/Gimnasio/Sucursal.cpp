@@ -32,12 +32,16 @@ void Sucursal::agregarInstructor(Instructor* inst) {
     instructores = nuevo;
     cantInstructores++;
 }
-
+//buscar por cedula
 Instructor* Sucursal::buscarInstructor(const string& cedula) const {
     for (int i = 0; i < cantInstructores; i++) {
-        if (instructores[i]->getCedula() == cedula)
-            return instructores[i];
+        if (instructores[i] && instructores[i]->getCedula() == cedula) return instructores[i];
     }
+    return nullptr;
+}
+
+Instructor* Sucursal::getInstructor(int indice) const {
+    if (indice >= 0 && indice < cantInstructores) return instructores[indice];
     return nullptr;
 }
 
@@ -71,6 +75,10 @@ void Sucursal::listarInstructores() const {
 }
 
 // ----- Clientes -----
+Cliente* Sucursal::getCliente(int indice) const {
+    if (indice >= 0 && indice < cantClientes) return clientes[indice];
+    return nullptr;
+}
 void Sucursal::agregarCliente(Cliente* cli) {
     Cliente** nuevo = new Cliente * [cantClientes + 1];
     for (int i = 0; i < cantClientes; i++)
@@ -84,7 +92,7 @@ void Sucursal::agregarCliente(Cliente* cli) {
 
 Cliente* Sucursal::buscarCliente(const string& cedula) const {
     for (int i = 0; i < cantClientes; i++) {
-        if (clientes[i]->getCedula() == cedula)
+        if (clientes[i] && clientes[i]->getCedula() == cedula)
             return clientes[i];
     }
     return nullptr;

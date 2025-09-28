@@ -12,9 +12,6 @@ Instructor::Instructor(string nom, string ced, string tel, string corr, string f
     telefono = tel;
     correo = corr;
     fechaNacimiento = fecha;
-    especialidades = esp;
-    cantEspecialidades = cantEsp;
-
     clientesAsignados = nullptr;
     cantClientes = 0;
 
@@ -64,6 +61,7 @@ string Instructor::toString() const {
 
 
 //manejo de especialidades
+//asignar cliente apunta a ellos no los elimina
 void Instructor::asignarCliente(Cliente* cli) {
     Cliente** nuevo = new Cliente * [cantClientes + 1];
     for (int i = 0; i < cantClientes; i++)
@@ -86,8 +84,22 @@ Cliente* Instructor::buscarCliente(const string& ced) const {
 
 //manejo de reportes
 void Instructor::agregarReporteAHistorial(Cliente* cli, Reporte* rep) {
-    cli->agregarReporte(rep); // delega al cliente
-    // También podemos almacenar en historial del instructor si queremos duplicar
+    cout << "Desea agregar un comentario al reporte? (si/no): ";
+    string resp;
+    cin >> resp;
+    cin.ignore(); // limpiar buffer
+    if (resp == "si" || resp == "SI") {
+        cout << "Ingrese comentario (max 100 caracteres): ";
+        string com;
+        getline(cin, com);
+        rep->setComentario(com);
+    }
+
+    // Agregar al historial del cliente después de editar el comentario
+    cli->agregarReporte(rep);
+
+    // Mostrar el mismo reporte directamente
+    rep->mostrarReporte();
 }
 void Instructor::eliminarReporteHistorial(Cliente* cli, int pos) {
     if (!cli) return;
