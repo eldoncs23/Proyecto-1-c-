@@ -1,0 +1,320 @@
+﻿  Cliente.cpp
+  Gimnasio.cpp
+  Instructor.cpp
+  Interfaz.cpp
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.cpp(120,18): error C2084: la función 'void Instructor::asignarCliente(Cliente *)' ya tiene un cuerpo
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.cpp(93,18):
+      vea la definición anterior de “Instructor::asignarCliente”
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.cpp(120,18): error C2084: la función 'void Instructor::asignarCliente(Cliente *)' ya tiene un cuerpo
+  (compilando archivo de origen "Interfaz.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.cpp(93,18):
+      vea la definición anterior de “Instructor::asignarCliente”
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,102): error C2017: secuencia de escape no válida
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,121): error C2065: 'ejemplo': identificador no declarado
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,129): error C2017: secuencia de escape no válida
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,131): error C2001: nueva línea en constante
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,130): error C2146: error de sintaxis: falta ')' delante del identificador 'n'
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,84): error C2660: 'Reporte::calcularProteinas': la función no acepta 1 argumentos
+  (compilando archivo de origen "Interfaz.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(23,16):
+      vea la declaración de 'Reporte::calcularProteinas'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,84):
+      al hacer coincidir la lista de argumentos '()'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,81): error C2088: el operador integrado '<<' no se puede aplicar a un operando de tipo 'std::basic_ostream<char,std::char_traits<char>>'
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,130): error C2146: error de sintaxis: falta ';' delante del identificador 'n'
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,130): error C2065: 'n': identificador no declarado
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,131): error C2143: error de sintaxis: falta ';' delante de 'cadena'
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(50,5): error C2146: error de sintaxis: falta ';' delante del identificador 'cout'
+  (compilando archivo de origen "Interfaz.cpp")
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(14,28): error C2512: 'Gimnasio::Gimnasio': no hay disponible un constructor predeterminado adecuado
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(14,28):
+      al hacer coincidir la lista de argumentos '()'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(103,34): error C2248: 'Sucursal::cantInstructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(15,6):
+      vea la declaración de 'Sucursal::cantInstructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(104,22): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(104,44): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(104,61): error C2248: 'Instructor::cedula': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(11,12):
+      vea la declaración de 'Instructor::cedula'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(105,29): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(113,37): error C2248: 'Instructor::cantClientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(19,9):
+      vea la declaración de 'Instructor::cantClientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(114,25): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(114,46): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(114,59): error C2248: 'Cliente::cedula': no se puede obtener acceso al miembro private miembro declarado en la clase 'Cliente'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,12):
+      vea la declaración de 'Cliente::cedula'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(6,7):
+      vea la declaración de 'Cliente'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(115,31): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(133,34): error C2248: 'Sucursal::cantInstructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(15,6):
+      vea la declaración de 'Sucursal::cantInstructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(134,22): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(134,44): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(134,61): error C2248: 'Instructor::cedula': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(11,12):
+      vea la declaración de 'Instructor::cedula'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(135,29): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(143,37): error C2248: 'Instructor::cantClientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(19,9):
+      vea la declaración de 'Instructor::cantClientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(144,25): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(144,46): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(144,59): error C2248: 'Cliente::cedula': no se puede obtener acceso al miembro private miembro declarado en la clase 'Cliente'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,12):
+      vea la declaración de 'Cliente::cedula'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(6,7):
+      vea la declaración de 'Cliente'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(145,31): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(166,34): error C2248: 'Sucursal::cantInstructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(15,6):
+      vea la declaración de 'Sucursal::cantInstructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(167,22): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(167,44): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(167,61): error C2248: 'Instructor::cedula': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(11,12):
+      vea la declaración de 'Instructor::cedula'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(168,29): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(176,37): error C2248: 'Instructor::cantClientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(19,9):
+      vea la declaración de 'Instructor::cantClientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(177,25): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(177,46): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(177,59): error C2248: 'Cliente::cedula': no se puede obtener acceso al miembro private miembro declarado en la clase 'Cliente'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,12):
+      vea la declaración de 'Cliente::cedula'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(6,7):
+      vea la declaración de 'Cliente'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(178,31): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(184,63): error C2248: 'Cliente::cantReportes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Cliente'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(16,9):
+      vea la declaración de 'Cliente::cantReportes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(6,7):
+      vea la declaración de 'Cliente'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(197,34): error C2248: 'Sucursal::cantInstructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(15,6):
+      vea la declaración de 'Sucursal::cantInstructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(198,22): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(198,44): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(198,61): error C2248: 'Instructor::cedula': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(11,12):
+      vea la declaración de 'Instructor::cedula'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(199,29): error C2248: 'Sucursal::instructores': no se puede obtener acceso al miembro private miembro declarado en la clase 'Sucursal'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(14,15):
+      vea la declaración de 'Sucursal::instructores'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(7,7):
+      vea la declaración de 'Sucursal'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(207,37): error C2248: 'Instructor::cantClientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(19,9):
+      vea la declaración de 'Instructor::cantClientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(208,25): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(208,46): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(208,59): error C2248: 'Cliente::cedula': no se puede obtener acceso al miembro private miembro declarado en la clase 'Cliente'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,12):
+      vea la declaración de 'Cliente::cedula'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(6,7):
+      vea la declaración de 'Cliente'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(209,31): error C2248: 'Instructor::clientes': no se puede obtener acceso al miembro private miembro declarado en la clase 'Instructor'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(18,15):
+      vea la declaración de 'Instructor::clientes'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(9,7):
+      vea la declaración de 'Instructor'
+  
+  main.cpp
+  Reporte.cpp
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,102): error C2017: secuencia de escape no válida
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,121): error C2065: 'ejemplo': identificador no declarado
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,129): error C2017: secuencia de escape no válida
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,131): error C2001: nueva línea en constante
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,130): error C2146: error de sintaxis: falta ')' delante del identificador 'n'
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,84): error C2660: 'Reporte::calcularProteinas': la función no acepta 1 argumentos
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(23,16):
+      vea la declaración de 'Reporte::calcularProteinas'
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,84):
+      al hacer coincidir la lista de argumentos '()'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,81): error C2088: el operador integrado '<<' no se puede aplicar a un operando de tipo 'std::basic_ostream<char,std::char_traits<char>>'
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,130): error C2146: error de sintaxis: falta ';' delante del identificador 'n'
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,130): error C2065: 'n': identificador no declarado
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(49,131): error C2143: error de sintaxis: falta ';' delante de 'cadena'
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.cpp(50,5): error C2146: error de sintaxis: falta ';' delante del identificador 'cout'
+  Sucursal.cpp
+  Generando código...
