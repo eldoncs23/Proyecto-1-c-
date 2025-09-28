@@ -4,14 +4,16 @@
 using namespace std;
 class Reporte{
 private:
+	double peso;
+	double altura;
+	int edad;
+	string sexo;
+	bool haceEjercicio;
 	string fecha;
-	float peso, estatura, grasa, musculo;
-	int edadMetabolica;
-	float cintura, cadera, pecho, muslo;
-	float imc;
+	double imc;
 
 public:
-	Reporte(string f, float p, float e);
+	Reporte(double peso, double altura, int edad, const string& sexo, bool ejercicio, string fecha);
 	float calcularIMC();
 	double calcularProteinas(string sexo, bool ejercicio);
 	double calcularAgua();

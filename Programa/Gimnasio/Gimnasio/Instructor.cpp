@@ -1,61 +1,46 @@
 #include "Instructor.h"
+#include "Reporte.h"
+#include "Cliente.h"
 #include <iostream>
 using namespace std;
 
 //constructor
-Instructor::Instructor(string c, string n, string t, string co, string fNac,
+Instructor::Instructor(string nom, string ced, string tel, string corr, string fecha,
     string* esp, int cantEsp){
-    cedula = c;
-    nombre = n;
-    telefono = t;
-    correo = co;
-    fechaNacimiento = fNac;
-    if (cantEsp > 0 && esp != nullptr) {
-        cantEspecialidades = cantEsp;
-        especialidades = new string[cantEsp];
-        for (int i = 0; i < cantEsp; i++) {
-            especialidades[i] = esp[i];
-        }
-    }
-    else {
-        cantEspecialidades = 0;
-        especialidades = nullptr;
-    }
+    nombre = nom;
+    cedula = ced;
+    telefono = tel;
+    correo = corr;
+    fechaNacimiento = fecha;
+    especialidades = esp;
+    cantEspecialidades = cantEsp;
 
-    clientes = nullptr;
+    clientesAsignados = nullptr;
     cantClientes = 0;
 
-    historial = nullptr;
-    cantReportes = 0;
-    
+    if (cantEsp > 0) {
+        especialidades = new string[cantEsp];
+        for (int i = 0; i < cantEsp; i++)
+            especialidades[i] = esp[i];
+        cantEspecialidades = cantEsp;
+    }
+    else {
+        especialidades = nullptr;
+        cantEspecialidades = 0;
+    }
 }
 
 Instructor::~Instructor() { 
     //destructor de instructor
-    // El instructor es responsable de destruir a sus clientes asignados, historial, esp
+    // El instructor no es responsable de destruir a sus clientes asignados, historial, esp
+    if (clientesAsignados) delete[] clientesAsignados;
     if (especialidades) delete[] especialidades;
-
-    if (clientes) {
-        for (int i = 0; i < cantClientes; i++)
-            delete clientes[i];
-        delete[] clientes;
-    }
-
-    if (historial) {
-        for (int i = 0; i < cantReportes; i++)
-            delete historial[i];
-        delete[] historial;
-    }
 }
 
 void Instructor::mostrar() const {
-    cout << "Instructor: " << nombre
-        << " | Cedula: " << cedula
-        << " | Telefono: " << telefono
-        << " | Correo: " << correo
-        << " | Fecha Nac.: " << fechaNacimiento
-        << endl;
-
+    cout << "Instructor: " << nombre << " | Cedula: " << cedula
+        << " | Telefono: " << telefono << " | Correo: " << correo
+        << " | Fecha Nac: " << fechaNacimiento << endl;
     cout << "Especialidades: ";
     if (cantEspecialidades > 0) {
         for (int i = 0; i < cantEspecialidades; i++) {
@@ -68,6 +53,7 @@ void Instructor::mostrar() const {
     }
     cout << endl;
 }
+
 string Instructor::toString() const {
     string s = "Instructor: " + nombre + " | Cedula: " + cedula +
         " | Telefono: " + telefono + " | Correo: " + correo +
@@ -76,98 +62,32 @@ string Instructor::toString() const {
     return s;
 }
 
+
 //manejo de especialidades
-void Instructor::setEspecialidades(string* esp, int cant) {
-    if (especialidades) delete[] especialidades;
-
-    if (cant > 0 && esp != nullptr) {
-        cantEspecialidades = cant;
-        especialidades = new string[cant];
-        for (int i = 0; i < cant; i++)
-            especialidades[i] = esp[i];
-    }
-    else {
-        cantEspecialidades = 0;
-        especialidades = nullptr;
-    }
-}
-
-//manejo de clientes
-void Instructor::asignarCliente(Cliente* c) {
+void Instructor::asignarCliente(Cliente* cli) {
     Cliente** nuevo = new Cliente * [cantClientes + 1];
     for (int i = 0; i < cantClientes; i++)
-        nuevo[i] = clientes[i];
-    nuevo[cantClientes] = c;
+        nuevo[i] = clientesAsignados[i];
+    nuevo[cantClientes] = cli;
 
-    if (clientes) delete[] clientes;
-    clientes = nuevo;
+    if (clientesAsignados) delete[] clientesAsignados;
+    clientesAsignados = nuevo;
     cantClientes++;
 }
 
 Cliente* Instructor::buscarCliente(const string& ced) const {
     for (int i = 0; i < cantClientes; i++) {
-        if (clientes[i]->getCedula() == ced)
-            return clientes[i];
+        if (clientesAsignados[i]->getCedula() == ced)
+            return clientesAsignados[i];
     }
     return nullptr;
 }
-void Instructor::despedirCliente(int index) {
-    if (index < 0 || index >= cantClientes) {
-        cout << "Indice de cliente invalido.\n";
-        return;
-    }
-    if (clientes[index]) {
-        delete clientes[index];
-        // compactar el arreglo
-        for (int i = index; i < cantClientes - 1; ++i) {
-            clientes[i] = clientes[i + 1];
-        }
-        clientes[cantClientes - 1] = nullptr;
-        --cantClientes;
-        cout << "Cliente eliminado correctamente.\n";
-    }
-}
 
-void Instructor::asignarCliente(Cliente* cli) {
-    Cliente** nuevo = new Cliente * [cantClientes + 1];
-    for (int i = 0; i < cantClientes; i++)
-        nuevo[i] = clientes[i];
-    nuevo[cantClientes] = cli;
-
-    if (clientes) delete[] clientes;
-    clientes = nuevo;
-    cantClientes++;
-}
-
-//buscar cliente
-Cliente* Instructor::buscarCliente(const string& ced) const{ // buscar cliente por numero de cedula
-    for (int i = 0; i < cantClientes; i++) {
-        if (clientes[i]->getCedula() == ced) {
-            return clientes[i];
-        }
-    }
-    return nullptr;
-}
 
 //manejo de reportes
-void Instructor::agregarReporteAHistorial(Reporte* r) {
-    if (cantReportes < 10) {
-        Reporte** nuevo = new Reporte * [cantReportes + 1];
-        for (int i = 0; i < cantReportes; i++)
-            nuevo[i] = historial[i];
-        nuevo[cantReportes] = r;
-
-        if (historial) delete[] historial;
-        historial = nuevo;
-        cantReportes++;
-    }
-    else {
-        // desplazar: eliminar el más viejo (posición 0)
-        delete historial[0];
-        for (int i = 1; i < cantReportes; i++)
-            historial[i - 1] = historial[i];
-        historial[cantReportes - 1] = r;
-    }
+void Instructor::agregarReporteAHistorial(Cliente* cli, Reporte* rep) {
+    cli->agregarReporte(rep); // delega al cliente
+    // También podemos almacenar en historial del instructor si queremos duplicar
 }
 
 void Instructor::eliminarReporteHistorial(int index) {
@@ -195,45 +115,35 @@ void Instructor::vaciarHistorial() {
 }
 
 //Manejo de rutinas
-void Instructor::crearRutina(Cliente* cli, const string& nombreRutina) {
-    if (!cli) {
-        cout << "Cliente invalido.\n";
+void Instructor::crearRutina(Cliente* cli) {
+    if (!cli) return;
+    Reporte* ult = cli->getUltimoReporte();
+    if (!ult) {
+        cout << "No hay reportes para generar rutina.\n";
         return;
     }
 
-    // Usamos el último reporte del historial del cliente
-    Reporte** hist = cli->getHistorial();
-    int cant = cli->getCantReportes();
-
-    if (!hist || cant == 0) {
-        cout << "El cliente no tiene reportes.\n";
-        return;
-    }
-
-    Reporte* ult = hist[cant - 1];
-
-    // Generar rutina basada en IMC y peso
-    string* ejercicios = nullptr;
+    string* rutina = nullptr;
     int n = 0;
 
-    if (ult->getIMC() < 18.5) {
+    double imc = ult->getIMC();
+    if (imc < 18.5) {
         n = 3;
-        ejercicios = new string[n]{ "Pesas básicas", "Alimentación hipercalórica", "Descanso activo" };
+        rutina = new string[n]{ "Entrenamiento fuerza", "Rutina hipercalorica", "Cardio ligero" };
     }
-    else if (ult->getIMC() >= 18.5 && ult->getIMC() < 25) {
+    else if (imc >= 18.5 && imc < 25) {
         n = 3;
-        ejercicios = new string[n]{ "Cardio moderado", "Pesas intermedias", "Flexibilidad" };
+        rutina = new string[n]{ "Rutina mantenimiento", "Cardio moderado", "Estiramientos" };
     }
     else {
         n = 3;
-        ejercicios = new string[n]{ "Cardio intenso", "Circuito HIIT", "Dieta balanceada" };
+        rutina = new string[n]{ "Cardio intenso", "Entrenamiento circuito", "Dieta hipocalorica" };
     }
 
-    cli->asignarRutina(ejercicios, n);
+    cli->asignarRutina(rutina, n);
+    delete[] rutina;
 
-    cout << "Rutina \"" << nombreRutina << "\" asignada al cliente " << cli->getNombre() << ".\n";
-
-    delete[] ejercicios; // liberamos temporal
+    cout << "Rutina creada y asignada al cliente " << cli->getNombre() << ".\n";
 }
 
 // BUSCAR INSTRUCTOR

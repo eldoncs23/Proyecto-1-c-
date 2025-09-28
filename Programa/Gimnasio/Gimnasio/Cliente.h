@@ -5,24 +5,27 @@
 using namespace std;
 class Cliente{
 private:
-    string cedula;
     string nombre;
+    string cedula;
     string telefono;
     string correo;
     string fechaNacimiento;
     string sexo;
     string fechaInscripcion;
+    // Historial de reportes (propiedad del Instructor, no se destruye en ~Cliente)
     Reporte** historial;
     int cantReportes;
-    const int maxReportes = 10;
+
+    // Rutina actual asignada
     string* rutina;
     int cantEjercicios;
 
 public:
-    Cliente(string c, string n);
+    Cliente(string nom, string ced, string tel, string corr, string fecha, string fechaInscripcion, string sexo);
     ~Cliente();
 
     void mostrarHistorial() const;
+    void mostrar() const;
     //gets
     string getCedula() const { return cedula; }
     string getNombre() const { return nombre; }
@@ -32,7 +35,6 @@ public:
     string getSexo() const { return sexo; }
     string getFechaInscripcion() const { return fechaInscripcion; }
     int getCantReportes() const { return cantReportes; }
-    int getMaxReportes() const { return maxReportes; }
 
     //sets
     void setTelefono(const string& t) { telefono = t; }
@@ -44,14 +46,16 @@ public:
     void setCedula(const string& c) { cedula = c; }
 
     //rutinas 
-    void asignarRutina(string* r, int cant);
+    void asignarRutina(string* ejercicios, int n);
+    void mostrarRutina() const;
     string* getRutina() const { return rutina; }
     int getCantEjercicios() const { return cantEjercicios; }
 
     //reporte
-    int getCantReportes() const { return cantReportes; }
-    Reporte** getHistorial() const { return historial; }
-    // Solo el Instructor puede modificar el historial
-    friend class Instructor;
+    // --- Gestión del historial (solo el Instructor debería llamarlas) ---
+    void agregarReporte(Reporte* rep);
+    void eliminarReporte(int pos);   // Elimina un reporte puntual
+    void vaciarHistorial();          // Elimina todos los reportes
+    Reporte* getUltimoReporte() const;
 };
 

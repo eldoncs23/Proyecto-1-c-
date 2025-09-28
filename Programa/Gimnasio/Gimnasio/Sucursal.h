@@ -1,33 +1,39 @@
 #pragma once
 #define SUCURSAL_h
 #include "Instructor.h"
+#include "Cliente.h"
 #include <string>
 using namespace std;
 
 class Sucursal {
 private:
 	string codigo;
-	string provincia;
-	string canton;
-	string correo;
-	string telefono;
+	string direccion;
 	Instructor** instructores;
 	int cantInstructores;
-	int tam; //cantidad de instructores
+	Cliente** clientes;
+	int cantClientes;
 
 public:
-	Sucursal(string c, string p, string ca, string co, string t);
-	~Sucursal();
+    // Constructor / Destructor
+    Sucursal(string cod, string dir);
+    ~Sucursal();
 
-	void agregarInstructor(Instructor* inst);
-	void mostrar() const;
-	void mostrarInstructores() const;
-	Instructor* buscarInstructor(string cedula); // agregado
+    // Métodos de gestión de instructores
+    void agregarInstructor(Instructor* inst);
+    Instructor* buscarInstructor(const string& cedula) const;
+    void eliminarInstructor(const string& cedula);
+    void listarInstructores() const;
 
-	string getCodigo() const { return codigo; }
-	string getProvincia() const { return provincia; }
-	string getCanton() const { return canton; }
-	string getCorreo() const { return correo; }
-	string getTelefono() const { return telefono; }
-	int getCantInstructores() const { return cantInstructores; }
+    // Métodos de gestión de clientes
+    void agregarCliente(Cliente* cli);
+    Cliente* buscarCliente(const string& cedula) const;
+    void eliminarCliente(const string& cedula);
+    void listarClientes() const;
+
+    // Getters
+    string getCodigo() const { return codigo; }
+    string getDireccion() const { return direccion; }
+    int getCantInstructores() const { return cantInstructores; }
+    int getCantClientes() const { return cantClientes; }
 };

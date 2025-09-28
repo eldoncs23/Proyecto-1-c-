@@ -8,24 +8,21 @@ using namespace std;
 
 class Instructor {
 private:
-    string cedula;
     string nombre;
+    string cedula;
     string telefono;
     string correo;
     string fechaNacimiento;
-
-    string* especialidades; //arreglo dinamico de strings
+    string* especialidades;
     int cantEspecialidades;
 
-    Cliente** clientes;
+    // Clientes asignados (solo punteros, no los destruye)
+    Cliente** clientesAsignados;
     int cantClientes;
 
-    int cantReportes;
-    Reporte** historial;
-
 public:
-    Instructor(string c, string n, string t, string co, string fNac,
-        string* esp, int cantEsp);
+    Instructor(string nom, string ced, string tel, string corr, string fecha,
+    string* esp, int cantEsp);
     ~Instructor();
 
     void mostrar() const;
@@ -44,26 +41,19 @@ public:
     void setCorreo(const string& e) { correo = e; }
     void setFechaNacimiento(const string& f) { fechaNacimiento = f; }
 
-    //manejo de especialidades
-    string* getEspecialidades() const { return especialidades; }
-    void setEspecialidades(string* esp, int cant); // copia n especialidades
-
-
-    //manejo de clientes
+    //manejo de clientes asignados
     void asignarCliente(Cliente* cli);
-    void despedirCliente(int index); //eliminar por indice
-    Cliente* buscarCliente(const string& ced)const; //buscar cliente por cedula
-    Cliente** getClientes() const { return clientes; }
+    Cliente* buscarCliente(const string& ced) const;
+    Cliente** getClientesAsignados() const { return clientesAsignados; }
 
     //manejo de historial (solo el instructor puede modificar)
-    void agregarReporteAHistorial(Reporte* r);
-    void eliminarReporteHistorial(int index);
-    void vaciarHistorial();
-    int getCantReportes() const { return cantReportes; }
-    Reporte** getHistorial() const { return historial; }
+    void agregarReporteAHistorial(Cliente* cli, Reporte* rep);
+    void eliminarReporteHistorial(Cliente* cli, int pos);
+    void vaciarHistorial(Cliente* cli);
+    
 
     //manejo de rutinas
-    void crearRutina(Cliente* cli, const string& nombreRutina);
+    void crearRutina(Cliente* cli);
     string toString() const;
 
     // Buscar instructor
