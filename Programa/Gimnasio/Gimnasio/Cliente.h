@@ -15,6 +15,9 @@ private:
     Reporte** historial;
     int cantReportes;
     const int maxReportes = 10;
+    string* rutina;
+    int cantEjercicios;
+
 public:
     Cliente(string c, string n);
     ~Cliente();
@@ -39,6 +42,15 @@ public:
     void setFechaInscripcion(const string& f) { fechaInscripcion = f; }
     void setNombre(const string& n) { nombre = n; }
     void setCedula(const string& c) { cedula = c; }
+
+    //rutinas 
+    void asignarRutina(string* r, int cant);
+    string* getRutina() const { return rutina; }
+    int getCantEjercicios() const { return cantEjercicios; }
+
+    //reporte
+    int getCantReportes() const { return cantReportes; }
+    Reporte** getHistorial() const { return historial; }
     // Solo el Instructor puede modificar el historial
     friend class Instructor;
 };

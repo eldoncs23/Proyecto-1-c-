@@ -28,13 +28,30 @@ Cliente::~Cliente() {
 }
 
 void Cliente::mostrarHistorial() const {
-    if (historial == nullptr || cantReportes == 0) {
-        cout << "El cliente no tiene reportes en su historial.\n";
-        return;
+    cout << "Rutina asignada: ";
+    if (rutina && cantEjercicios > 0) {
+        for (int i = 0; i < cantEjercicios; i++) {
+            cout << rutina[i];
+            if (i < cantEjercicios - 1) cout << ", ";
+        }
     }
-    cout << "Historial de reportes (" << cantReportes << "):\n";
-    for (int i = 0; i < cantReportes; ++i) {
-        cout << "---- Reporte #" << i + 1 << " ----\n";
-        if (historial[i]) historial[i]->mostrarReporte();
+    else {
+        cout << "Ninguna";
+    }
+    cout << endl;
+}
+
+void Cliente::asignarRutina(string* r, int cant) {
+    if (rutina) delete[] rutina;
+
+    if (cant > 0 && r != nullptr) {
+        cantEjercicios = cant;
+        rutina = new string[cant];
+        for (int i = 0; i < cant; i++)
+            rutina[i] = r[i];
+    }
+    else {
+        rutina = nullptr;
+        cantEjercicios = 0;
     }
 }

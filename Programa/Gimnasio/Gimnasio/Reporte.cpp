@@ -13,6 +13,12 @@ Reporte::Reporte(string f, float p, float e)
     cintura = cadera = pecho = muslo = 0.0f;
     imc = calcularIMC();
 }
+float Reporte::getIMC() const {
+    return imc;            // imc se inicializa en el constructor/calcularIMC()
+}
+string Reporte::getFecha() const {
+    return fecha;
+}
 
 float Reporte::calcularIMC() {
     if (estatura <= 0.0f) return 0.0f;

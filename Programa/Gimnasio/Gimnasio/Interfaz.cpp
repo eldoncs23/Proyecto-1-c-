@@ -11,7 +11,8 @@
 using namespace std;
 
 Interfaz::Interfaz() {
-    gimnasio = new Gimnasio();
+    string a = "powerlab";
+    gimnasio = new Gimnasio(a);
 }
 
 Interfaz::~Interfaz() {
@@ -59,10 +60,17 @@ void Interfaz::mostrarMenuPrincipal() {
                 cout << "Sucursal no encontrada.\n";
                 break;
             }
-            string ced, nom;
+            string ced, nom, t, co, fNac;
+            string* esp;
+            int cantEsp;
             cout << "Cedula instructor: "; cin >> ced;
             cout << "Nombre instructor: "; cin >> nom;
-            s->agregarInstructor(new Instructor(ced, nom));
+            cout << "Correo instructor: "; cin >> co;
+            cout << "Telefono instructor: "; cin >> t;
+            cout << "Fecha de Nacimiento de instructor: "; cin >> fNac;
+            cout << "Especialidad instructor: "; cin >> nom;
+            cout << "Cantidad especialidades instructor: "; cin >> cantEsp;
+            s->agregarInstructor(new Instructor(ced, nom, co, t, fNac, esp, cantEsp));
             break;
         }
         case 4: {
@@ -99,26 +107,7 @@ void Interfaz::mostrarMenuPrincipal() {
             if (!s) { cout << "Sucursal no encontrada.\n"; break; }
 
             cout << "Cedula instructor: "; cin >> cedInstructor;
-            Instructor* inst = nullptr;
-            for (int i = 0; i < s->cantInstructores; i++) {
-                if (s->instructores[i] && s->instructores[i]->cedula == cedInstructor) {
-                    inst = s->instructores[i];
-                    break;
-                }
-            }
-            if (!inst) { cout << "Instructor no encontrado.\n"; break; }
-
-            cout << "Cedula cliente: "; cin >> cedCliente;
-            Cliente* cli = nullptr;
-            for (int i = 0; i < inst->cantClientes; i++) {
-                if (inst->clientes[i] && inst->clientes[i]->cedula == cedCliente) {
-                    cli = inst->clientes[i];
-                    break;
-                }
-            }
-            if (!cli) { cout << "Cliente no encontrado.\n"; break; }
-
-            cli->mostrarHistorial();
+            
             break;
         }
         case 7: {
@@ -126,32 +115,7 @@ void Interfaz::mostrarMenuPrincipal() {
             float peso, estatura;
             cout << "Codigo sucursal: "; cin >> cod;
             Sucursal* s = gimnasio->buscarSucursal(cod);
-            if (!s) { cout << "Sucursal no encontrada.\n"; break; }
-
-            cout << "Cedula instructor: "; cin >> cedInstructor;
-            Instructor* inst = nullptr;
-            for (int i = 0; i < s->cantInstructores; i++) {
-                if (s->instructores[i] && s->instructores[i]->cedula == cedInstructor) {
-                    inst = s->instructores[i];
-                    break;
-                }
-            }
-            if (!inst) { cout << "Instructor no encontrado.\n"; break; }
-
-            cout << "Cedula cliente: "; cin >> cedCliente;
-            Cliente* cli = nullptr;
-            for (int i = 0; i < inst->cantClientes; i++) {
-                if (inst->clientes[i] && inst->clientes[i]->cedula == cedCliente) {
-                    cli = inst->clientes[i];
-                    break;
-                }
-            }
-            if (!cli) { cout << "Cliente no encontrado.\n"; break; }
-
-            cout << "Fecha (dd/mm/aaaa): "; cin >> fecha;
-            cout << "Peso (kg): "; cin >> peso;
-            cout << "Estatura (m): "; cin >> estatura;
-            inst->agregarReporteAHistorial(cli, new Reporte(fecha, peso, estatura));
+            
             break;
         }
         case 8: {
@@ -162,57 +126,14 @@ void Interfaz::mostrarMenuPrincipal() {
             if (!s) { cout << "Sucursal no encontrada.\n"; break; }
 
             cout << "Cedula instructor: "; cin >> cedInstructor;
-            Instructor* inst = nullptr;
-            for (int i = 0; i < s->cantInstructores; i++) {
-                if (s->instructores[i] && s->instructores[i]->cedula == cedInstructor) {
-                    inst = s->instructores[i];
-                    break;
-                }
-            }
-            if (!inst) { cout << "Instructor no encontrado.\n"; break; }
-
-            cout << "Cedula cliente: "; cin >> cedCliente;
-            Cliente* cli = nullptr;
-            for (int i = 0; i < inst->cantClientes; i++) {
-                if (inst->clientes[i] && inst->clientes[i]->cedula == cedCliente) {
-                    cli = inst->clientes[i];
-                    break;
-                }
-            }
-            if (!cli) { cout << "Cliente no encontrado.\n"; break; }
-
-            cout << "Indice de reporte a eliminar (1.." << cli->cantReportes << "): ";
-            cin >> idx;
-            inst->eliminarReporteDeHistorial(cli, idx - 1);
+           
             break;
         }
         case 9: {
             string cod, cedInstructor, cedCliente;
             cout << "Codigo sucursal: "; cin >> cod;
             Sucursal* s = gimnasio->buscarSucursal(cod);
-            if (!s) { cout << "Sucursal no encontrada.\n"; break; }
-
-            cout << "Cedula instructor: "; cin >> cedInstructor;
-            Instructor* inst = nullptr;
-            for (int i = 0; i < s->cantInstructores; i++) {
-                if (s->instructores[i] && s->instructores[i]->cedula == cedInstructor) {
-                    inst = s->instructores[i];
-                    break;
-                }
-            }
-            if (!inst) { cout << "Instructor no encontrado.\n"; break; }
-
-            cout << "Cedula cliente: "; cin >> cedCliente;
-            Cliente* cli = nullptr;
-            for (int i = 0; i < inst->cantClientes; i++) {
-                if (inst->clientes[i] && inst->clientes[i]->cedula == cedCliente) {
-                    cli = inst->clientes[i];
-                    break;
-                }
-            }
-            if (!cli) { cout << "Cliente no encontrado.\n"; break; }
-
-            inst->vaciarHistorialCliente(cli);
+           
             break;
         }
         case 0:

@@ -18,5 +18,7 @@ public:
 	void mostrarReporte();
 	string getFecha() { return fecha; }
 	void setFecha(string& t) { fecha = t; }
+	string getFecha() const;
+	float getIMC() const;
 };
 

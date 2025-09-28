@@ -51,7 +51,7 @@ void Sucursal::mostrarInstructores() const {
     }
 }
 
-Instructor* Sucursal::buscarInstructor(string cedula) { // va a buscar instructor por la cedula
+Instructor* Sucursal::buscarInstructor(string cedula) const{ // va a buscar instructor por la cedula
     for (int i = 0; i < cantInstructores; ++i) {
         if (instructores[i] && instructores[i]->getCedula() == cedula) return instructores[i];
     }
