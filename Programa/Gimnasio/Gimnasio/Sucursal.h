@@ -1,45 +1,40 @@
 #pragma once
-#define SUCURSAL_h
 #include "Instructor.h"
-#include "Cliente.h"
+#include "ColeccionClientes.h"
 #include <string>
 using namespace std;
 
 class Sucursal {
 private:
-	string codigo;
-    string nombre;
-	string direccion;
-	Instructor** instructores;
-	int cantInstructores;
-	Cliente** clientes;
-	int cantClientes;
+    string codigo;
+    string provincia;
+    string canton;
+    string correo;
+    string telefono;
+
+    Instructor** instructores;
+    int cantInstructores;
+
+    ColeccionClientes* clientes; // ahora usamos ColeccionClientes
 
 public:
-    // Constructor / Destructor
-    Sucursal(string cod, string n, string dir);
+    Sucursal(const string& cod, const string& prov, const string& can, const string& corr, const string& tel);
     ~Sucursal();
-    void mostrar() const;
-    // Métodos de gestión de instructores
-    void agregarInstructor(Instructor* inst);
-    Instructor* buscarInstructor(const string& cedula) const;
 
-    Instructor* getInstructor(int indice) const;
-    void eliminarInstructor(const string& cedula);
+    // Gestión de instructores
+    void agregarInstructor(Instructor* inst);
+    Instructor* buscarInstructor(const string& ced) const;
+    void eliminarInstructor(const string& ced);
     void listarInstructores() const;
 
-    // Métodos de gestión de clientes
-    Cliente* getCliente(int indice) const;
-    int getCantidadClientes() const { return cantClientes; }
+    // Gestión de clientes (delegamos a ColeccionClientes)
     void agregarCliente(Cliente* cli);
-    Cliente* buscarCliente(const string& cedula) const;
-    void eliminarCliente(const string& cedula);
+    Cliente* buscarCliente(const string& ced) const;
+    void eliminarCliente(const string& ced);
     void listarClientes() const;
-    
+
     // Getters
-    string getCodigo() const { return codigo; }
-    string getNombre() const { return nombre; }
-    string getDireccion() const { return direccion; }
     int getCantInstructores() const { return cantInstructores; }
-    int getCantClientes() const { return cantClientes; }
+    Instructor* getInstructor(int index) const { return (index < cantInstructores) ? instructores[index] : nullptr; }
+    ColeccionClientes* getClientes() const { return clientes; }
 };

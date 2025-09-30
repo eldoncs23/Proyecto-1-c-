@@ -1,8 +1,6 @@
 #pragma once
-#define INSTRUCTOR_H
-
 #include "Cliente.h"
-#include "Reporte.h"
+#include "Historial.h"
 #include <string>
 using namespace std;
 
@@ -15,54 +13,55 @@ private:
     string fechaNacimiento;
     string* especialidades;
     int cantEspecialidades;
-    
-    // Clientes asignados (solo punteros, no los destruye)
+
+    // Clientes asignados
     Cliente** clientesAsignados;
     int cantClientes;
 
 public:
     Instructor(string nom, string ced, string tel, string corr, string fecha,
-    string* esp, int cantEsp);
-
+        string* esp, int cantEsp);
     ~Instructor();
 
     void mostrar() const;
+    string toString() const;
 
-    //gets
+    // Gets
     string getCedula() const { return cedula; }
     string getNombre() const { return nombre; }
-    string getTelefono() const { return telefono; }
-    string getCorreo() const { return correo; }
-    string getFechaNacimiento() const { return fechaNacimiento; }
     int getCantClientes() const { return cantClientes; }
 
-    //sets
+    // Sets
     void setNombre(const string& n) { nombre = n; }
     void setTelefono(const string& t) { telefono = t; }
     void setCorreo(const string& e) { correo = e; }
     void setFechaNacimiento(const string& f) { fechaNacimiento = f; }
 
-    //manejo de clientes asignados
+    // Manejo de clientes
     void asignarCliente(Cliente* cli);
     Cliente* buscarCliente(const string& ced) const;
     Cliente** getClientesAsignados() const { return clientesAsignados; }
 
-    //manejo de historial (solo el instructor puede modificar)
-    void agregarReporteAHistorial(Cliente* cli, Reporte* rep);
-    void eliminarReporteHistorial(Cliente* cli, int pos);
-    void vaciarHistorial(Cliente* cli);
+    // Manejo de historial
+    void crearReporte(Cliente* cli, double peso, double altura, int edad,
+        const string& sexo, bool haceEjercicio,
+        double grasa = 0, double musculo = 0, int edadMet = 0,
+        double cintura = 0, double cadera = 0, double pecho = 0, double muslo = 0,
+        const string& comentario = "");
 
-    //manejo de rutinas
+    void eliminarReporteCliente(Cliente* cli, int pos);
+    void vaciarHistorialCliente(Cliente* cli);
+
+    // Rutinas
     void crearRutina(Cliente* cli);
-
-    string toString() const;
 
     // Buscar instructor
     Instructor* buscarInstructor(const string& ced) const;
-    void crearReporte(Cliente* cli,double peso, double altura, int edad, const string& sexo, bool haceEjercicio,
-        double grasa = 0.0, double musculo = 0.0, int edadMetabolica = 0,
-        double grasaVisceral = 0.0, double cintura = 0.0, double cadera = 0.0,
-        double pecho = 0.0, double muslo = 0.0,
-        const string& comentario = "");
 };
+
+
+
+
+
+
 

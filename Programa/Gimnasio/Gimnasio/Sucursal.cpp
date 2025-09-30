@@ -2,53 +2,50 @@
 #include <iostream>
 using namespace std;
 
-Sucursal::Sucursal(string cod, string n, string dir)
-    : codigo(cod), nombre(n), direccion(dir), instructores(nullptr), cantInstructores(0),
-    clientes(nullptr), cantClientes(0) {
+Sucursal::Sucursal(const string& cod, const string& prov, const string& can, const string& corr, const string& tel) {
+    codigo = cod;
+    provincia = prov;
+    canton = can;
+    correo = corr;
+    telefono = tel;
+
+    instructores = nullptr;
+    cantInstructores = 0;
+
+    clientes = new ColeccionClientes(); // inicializamos la colección
 }
 
 Sucursal::~Sucursal() {
-    // Destruir instructores
-    for (int i = 0; i < cantInstructores; i++) {
+    for (int i = 0; i < cantInstructores; i++)
         delete instructores[i];
-    }
     delete[] instructores;
-
-    // Destruir clientes
-    for (int i = 0; i < cantClientes; i++) {
-        delete clientes[i];
-    }
-    delete[] clientes;
+    delete clientes;
 }
 
-// ----- Instructores -----
+// Gestión de instructores
 void Sucursal::agregarInstructor(Instructor* inst) {
     Instructor** nuevo = new Instructor * [cantInstructores + 1];
     for (int i = 0; i < cantInstructores; i++)
         nuevo[i] = instructores[i];
     nuevo[cantInstructores] = inst;
 
-    if (instructores) delete[] instructores;
+    delete[] instructores;
     instructores = nuevo;
     cantInstructores++;
 }
-//buscar por cedula
-Instructor* Sucursal::buscarInstructor(const string& cedula) const {
+
+Instructor* Sucursal::buscarInstructor(const string& ced) const {
     for (int i = 0; i < cantInstructores; i++) {
-        if (instructores[i] && instructores[i]->getCedula() == cedula) return instructores[i];
+        if (instructores[i]->getCedula() == ced)
+            return instructores[i];
     }
     return nullptr;
 }
 
-Instructor* Sucursal::getInstructor(int indice) const {
-    if (indice >= 0 && indice < cantInstructores) return instructores[indice];
-    return nullptr;
-}
-
-void Sucursal::eliminarInstructor(const string& cedula) {
+void Sucursal::eliminarInstructor(const string& ced) {
     int pos = -1;
     for (int i = 0; i < cantInstructores; i++) {
-        if (instructores[i]->getCedula() == cedula) {
+        if (instructores[i]->getCedula() == ced) {
             pos = i;
             break;
         }
@@ -56,79 +53,37 @@ void Sucursal::eliminarInstructor(const string& cedula) {
     if (pos == -1) return;
 
     delete instructores[pos];
-    for (int i = pos; i < cantInstructores - 1; i++) {
-        instructores[i] = instructores[i + 1];
-    }
-    cantInstructores--;
 
-    if (cantInstructores == 0) {
-        delete[] instructores;
-        instructores = nullptr;
+    Instructor** nuevo = new Instructor * [cantInstructores - 1];
+    int k = 0;
+    for (int i = 0; i < cantInstructores; i++) {
+        if (i == pos) continue;
+        nuevo[k++] = instructores[i];
     }
+
+    delete[] instructores;
+    instructores = nuevo;
+    cantInstructores--;
 }
 
 void Sucursal::listarInstructores() const {
-    cout << "Instructores en sucursal " << codigo << ":\n";
-    for (int i = 0; i < cantInstructores; i++) {
+    for (int i = 0; i < cantInstructores; i++)
         instructores[i]->mostrar();
-    }
 }
 
-// ----- Clientes -----
-Cliente* Sucursal::getCliente(int indice) const {
-    if (indice >= 0 && indice < cantClientes) return clientes[indice];
-    return nullptr;
-}
+// Gestión de clientes (delegamos a ColeccionClientes)
 void Sucursal::agregarCliente(Cliente* cli) {
-    Cliente** nuevo = new Cliente * [cantClientes + 1];
-    for (int i = 0; i < cantClientes; i++)
-        nuevo[i] = clientes[i];
-    nuevo[cantClientes] = cli;
-
-    if (clientes) delete[] clientes;
-    clientes = nuevo;
-    cantClientes++;
+    clientes->agregarCliente(cli);
 }
 
-Cliente* Sucursal::buscarCliente(const string& cedula) const {
-    for (int i = 0; i < cantClientes; i++) {
-        if (clientes[i] && clientes[i]->getCedula() == cedula)
-            return clientes[i];
-    }
-    return nullptr;
+Cliente* Sucursal::buscarCliente(const string& ced) const {
+    return clientes->buscarCliente(ced);
 }
 
-void Sucursal::eliminarCliente(const string& cedula) {
-    int pos = -1;
-    for (int i = 0; i < cantClientes; i++) {
-        if (clientes[i]->getCedula() == cedula) {
-            pos = i;
-            break;
-        }
-    }
-    if (pos == -1) return;
-
-    delete clientes[pos];
-    for (int i = pos; i < cantClientes - 1; i++) {
-        clientes[i] = clientes[i + 1];
-    }
-    cantClientes--;
-
-    if (cantClientes == 0) {
-        delete[] clientes;
-        clientes = nullptr;
-    }
+void Sucursal::eliminarCliente(const string& ced) {
+    clientes->eliminarCliente(ced);
 }
 
 void Sucursal::listarClientes() const {
-    cout << "Clientes en sucursal " << codigo << ":\n";
-    for (int i = 0; i < cantClientes; i++) {
-        clientes[i]->mostrar();
-    }
-}
-
-void Sucursal::mostrar() const {
-    cout << "Sucursal: " << codigo << " - " << nombre << "-"<< direccion<< "\n";
-    cout << "Cantidad de instructores: " << cantInstructores << "\n";
-    cout << "Cantidad de clientes: " << cantClientes << "\n";
+    clientes->mostrarClientes();
 }

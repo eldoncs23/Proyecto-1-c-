@@ -1,9 +1,12 @@
 #pragma once
 #define CLIENTE_H
+
 #include "Reporte.h"
+#include "Historial.h"
 #include <string>
 using namespace std;
-class Cliente{
+
+class Cliente {
 private:
     string nombre;
     string cedula;
@@ -12,21 +15,24 @@ private:
     string fechaNacimiento;
     string sexo;
     string fechaInscripcion;
-    // Historial de reportes (propiedad del Instructor, no se destruye en ~Cliente)
-    Reporte** historial;
-    int cantReportes;
+
+    // Historial de reportes (colección)
+    Historial* historial;
 
     // Rutina actual asignada
     string* rutina;
     int cantEjercicios;
 
 public:
-    Cliente(string nom, string ced, string tel, string corr, string fecha, string sexo, const string& fechaInscripcion);
+    Cliente(string nom, string ced, string tel, string corr, string fecha,
+        const string& sexo, const string& fechaInscripcion);
     ~Cliente();
-    //mostrar
-    void mostrarHistorial() const;
+
     void mostrar() const;
-    //gets
+    void mostrarHistorial() const;
+    void mostrarRutina() const;
+
+    // Gets
     string getCedula() const { return cedula; }
     string getNombre() const { return nombre; }
     string getTelefono() const { return telefono; }
@@ -34,11 +40,11 @@ public:
     string getFechaNacimiento() const { return fechaNacimiento; }
     string getSexo() const { return sexo; }
     string getFechaInscripcion() const { return fechaInscripcion; }
-    int getCantReportes() const { return cantReportes; }
+    Historial* getHistorial() const { return historial; }
     int getCantEjercicios() const { return cantEjercicios; }
     string* getRutina() const { return rutina; }
-    Reporte* getUltimoReporte() const;
-    //sets
+
+    // Sets
     void setTelefono(const string& t) { telefono = t; }
     void setCorreo(const string& c) { correo = c; }
     void setFechaNacimiento(const string& f) { fechaNacimiento = f; }
@@ -47,14 +53,8 @@ public:
     void setNombre(const string& n) { nombre = n; }
     void setCedula(const string& c) { cedula = c; }
 
-    //rutinas 
+    // Rutina
     void asignarRutina(string* ejercicios, int n);
-    void mostrarRutina() const;
-
-    //reporte
-    // Gestión del historial (solo el Instructor debería llamarlas)
-    void agregarReporte(Reporte* rep);
-    void eliminarReporte(int pos);   // Elimina un reporte puntual
-    void vaciarHistorial();          // Elimina todos los reportes
 };
+
 

@@ -33,6 +33,15 @@
     <ClInclude Include="Interfaz.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Historial.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ColeccionClientes.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ColeccionInstructores.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Gimnasio.cpp">
@@ -54,6 +63,15 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Interfaz.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Historial.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ColeccionClientes.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ColeccionInstructores.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
