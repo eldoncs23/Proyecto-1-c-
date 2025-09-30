@@ -1,29 +1,39 @@
 #define INTERFAZ_H
-
-#include <iostream>
+#pragma once
 #include "Gimnasio.h"
-#include "Sucursal.h"
-#include "Instructor.h"
-#include "Cliente.h"
-#include "Reporte.h"
-
+#include <string>
 using namespace std;
 
 class Interfaz {
 private:
-    Gimnasio* gimnasio;
+    Gimnasio* gimnasio;   // asociación principal
 
 public:
     Interfaz(Gimnasio* g) : gimnasio(g) {}
+
     void menuPrincipal();
-private:
+
+    // === Gestión de entidades ===
     void agregarSucursal();
     void agregarInstructor();
     void agregarCliente();
+
     void mostrarSucursales();
     void mostrarInstructores();
     void mostrarClientes();
+
+    // === Reportes ===
     void crearReporte();
     void mostrarHistorialCliente();
+
+    // === Rutinas ===
     void crearRutinaCliente();
+    void mostrarRutinaCliente();
+    void eliminarRutinaCliente();
+
+    // === Eliminaciones ===
+    void eliminarSucursal();
+    void eliminarInstructor();
+    void eliminarCliente();
+    void vaciarHistorialCliente();
 };

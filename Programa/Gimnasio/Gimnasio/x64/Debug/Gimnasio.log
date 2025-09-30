@@ -1,4 +1,9 @@
-﻿  Reporte.cpp
-  Sucursal.cpp
+﻿  Gimnasio.cpp
+  Interfaz.cpp
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(180,16): error C2084: la función 'void Interfaz::crearReporte(void)' ya tiene un cuerpo
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(122,16):
+      vea la definición anterior de “Interfaz::crearReporte”
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(218,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  main.cpp
   Generando código...
-  Gimnasio.vcxproj -> F:\Github\Proyecto-1-c-\Programa\Gimnasio\x64\Debug\Gimnasio.exe
