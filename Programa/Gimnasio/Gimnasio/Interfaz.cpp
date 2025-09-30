@@ -198,32 +198,35 @@ void Interfaz::crearReporte() {
     cout << "Sexo (M/F): "; getline(cin, sexo);
     cout << "Hace ejercicio? (1=Sí, 0=No): "; cin >> haceEjercicio; cin.ignore();
 
-    Reporte* rep = new Reporte(peso, altura, edad, sexo, haceEjercicio);
-
-    // Preguntar por campos opcionales
+    // Opcionales:
     string resp;
-    cout << "Desea ingresar valores adicionales (grasa, musculo, edad metabolica, cintura, cadera, pecho, muslo)? (si/no): ";
+    double grasa = 0, musculo = 0, edadMet = 0, grasaVisc = 0, cintura = 0, cadera = 0, pecho = 0, muslo = 0;
+    cout << "Desea ingresar valores adicionales (grasa, musculo, edad metabolica, grasa visceral, cintura, cadera, pecho, muslo)? (si/no): ";
     getline(cin, resp);
     if (resp == "si" || resp == "SI") {
-        double grasa, musculo, edadMetab, cintura, cadera, pecho, muslo;
         cout << "Grasa (%): "; cin >> grasa;
         cout << "Musculo (%): "; cin >> musculo;
-        cout << "Edad metabolica: "; cin >> edadMetab;
+        cout << "Edad metabolica: "; cin >> edadMet;
+        cout << "Grasa visceral: "; cin >> grasaVisc;
         cout << "Cintura (cm): "; cin >> cintura;
         cout << "Cadera (cm): "; cin >> cadera;
         cout << "Pecho (cm): "; cin >> pecho;
-        cout << "Muslo (cm): "; cin >> muslo; cin.ignore();
-        rep->setGrasa(grasa);
-        rep->setMusculo(musculo);
-        rep->setEdadMetabolica(edadMetab);
-        rep->setCintura(cintura);
-        rep->setCadera(cadera);
-        rep->setPecho(pecho);
-        rep->setMuslo(muslo);
+        cout << "Muslo (cm): "; cin >> muslo;
+        cin.ignore();
     }
 
-    inst->agregarReporteAHistorial(cli, rep);
-    cout << "Reporte agregado al historial del cliente.\n";
+    cout << "Desea agregar comentario del instructor? (si/no): ";
+    string addCom; getline(cin, addCom);
+    string comentario = "";
+    if (addCom == "si" || addCom == "SI") {
+        cout << "Ingrese comentario (max 100 caracteres): ";
+        getline(cin, comentario);
+    }
+
+    // Llamar al instructor para que él cree y administre el reporte
+    inst->crearReporte(cli, peso, altura, edad, sexo, haceEjercicio,
+        grasa, musculo, static_cast<int>(edadMet), grasaVisc,
+        cintura, cadera, pecho, muslo, comentario);
 }
 
 // === MOSTRAR RUTINA ===

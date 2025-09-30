@@ -15,7 +15,7 @@ private:
     string fechaNacimiento;
     string* especialidades;
     int cantEspecialidades;
-
+    
     // Clientes asignados (solo punteros, no los destruye)
     Cliente** clientesAsignados;
     int cantClientes;
@@ -23,6 +23,7 @@ private:
 public:
     Instructor(string nom, string ced, string tel, string corr, string fecha,
     string* esp, int cantEsp);
+
     ~Instructor();
 
     void mostrar() const;
@@ -53,9 +54,15 @@ public:
 
     //manejo de rutinas
     void crearRutina(Cliente* cli);
+
     string toString() const;
 
     // Buscar instructor
     Instructor* buscarInstructor(const string& ced) const;
+    void crearReporte(Cliente* cli,double peso, double altura, int edad, const string& sexo, bool haceEjercicio,
+        double grasa = 0.0, double musculo = 0.0, int edadMetabolica = 0,
+        double grasaVisceral = 0.0, double cintura = 0.0, double cadera = 0.0,
+        double pecho = 0.0, double muslo = 0.0,
+        const string& comentario = "");
 };
 
