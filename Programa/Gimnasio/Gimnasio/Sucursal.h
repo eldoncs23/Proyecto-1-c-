@@ -1,40 +1,49 @@
-#pragma once
+#define SUCURSAL_H
+
+#include <iostream>
+#include "Cliente.h"
 #include "Instructor.h"
 #include "ColeccionClientes.h"
-#include <string>
 using namespace std;
 
 class Sucursal {
 private:
+    string nombre;
     string codigo;
     string provincia;
     string canton;
     string correo;
     string telefono;
 
+    ColeccionClientes* clientes;
     Instructor** instructores;
-    int cantInstructores;
-
-    ColeccionClientes* clientes; // ahora usamos ColeccionClientes
+    int cantidadInstructores;
+    //int capacidadInstructores;
 
 public:
-    Sucursal(const string& cod, const string& prov, const string& can, const string& corr, const string& tel);
+    // Constructor y destructor
+    Sucursal();
+    Sucursal(string nombre, string codigo, string provincia, string canton, string correo, string telefono);
     ~Sucursal();
 
-    // Gestión de instructores
-    void agregarInstructor(Instructor* inst);
-    Instructor* buscarInstructor(const string& ced) const;
-    void eliminarInstructor(const string& ced);
-    void listarInstructores() const;
+    // Getters y setters
+    string getNombre() const;
+    string getCodigo() const;
+    string getProvincia() const;
+    string getCanton() const;
+    string getCorreo() const;
+    string getTelefono() const;
+    void setNombre(string nombre);
+    void setCodigo(string codigo);
+    void setProvincia(string provincia);
+    void setCanton(string canton);
+    void setCorreo(string correo);
+    void setTelefono(string telefono);
 
-    // Gestión de clientes (delegamos a ColeccionClientes)
-    void agregarCliente(Cliente* cli);
-    Cliente* buscarCliente(const string& ced) const;
-    void eliminarCliente(const string& ced);
-    void listarClientes() const;
-
-    // Getters
-    int getCantInstructores() const { return cantInstructores; }
-    Instructor* getInstructor(int index) const { return (index < cantInstructores) ? instructores[index] : nullptr; }
-    ColeccionClientes* getClientes() const { return clientes; }
+    // Métodos
+    bool agregarInstructor(Instructor* inst);
+    bool eliminarInstructorPorCedula(string cedula);
+    Instructor* buscarInstructorPorCedula(string cedula);
+    ColeccionClientes* getColeccionClientes() const;
+    int getCantidadInstructores() const;
 };

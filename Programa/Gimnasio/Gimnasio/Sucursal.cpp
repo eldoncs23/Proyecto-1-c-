@@ -1,89 +1,84 @@
 #include "Sucursal.h"
-#include <iostream>
-using namespace std;
 
-Sucursal::Sucursal(const string& cod, const string& prov, const string& can, const string& corr, const string& tel) {
-    codigo = cod;
-    provincia = prov;
-    canton = can;
-    correo = corr;
-    telefono = tel;
-
-    instructores = nullptr;
-    cantInstructores = 0;
-
-    clientes = new ColeccionClientes(); // inicializamos la colección
+// Constructor por defecto
+Sucursal::Sucursal() {
+    nombre = "";
+    codigo = "";
+    provincia = "";
+    canton = "";
+    correo = "";
+    telefono = "";
+    clientes = new ColeccionClientes();
+    //capacidadInstructores = 20;
+    cantidadInstructores = 0;
+    instructores = new Instructor * [capacidadInstructores];
 }
 
+// Constructor con parámetros
+Sucursal::Sucursal(string nombre, string codigo, string provincia, string canton, string correo, string telefono) {
+    this->nombre = nombre;
+    this->codigo = codigo;
+    this->provincia = provincia;
+    this->canton = canton;
+    this->correo = correo;
+    this->telefono = telefono;
+    clientes = new ColeccionClientes();
+    //capacidadInstructores = maxInstructores;
+    cantidadInstructores = 0;
+    instructores = new Instructor * [capacidadInstructores];
+}
+
+// Destructor
 Sucursal::~Sucursal() {
-    for (int i = 0; i < cantInstructores; i++)
+    delete clientes;
+    for (int i = 0; i < cantidadInstructores; i++)
         delete instructores[i];
     delete[] instructores;
-    delete clientes;
 }
 
-// Gestión de instructores
-void Sucursal::agregarInstructor(Instructor* inst) {
-    Instructor** nuevo = new Instructor * [cantInstructores + 1];
-    for (int i = 0; i < cantInstructores; i++)
-        nuevo[i] = instructores[i];
-    nuevo[cantInstructores] = inst;
+// Getters
+string Sucursal::getNombre() const { return nombre; }
+string Sucursal::getCodigo() const { return codigo; }
+string Sucursal::getProvincia() const { return provincia; }
+string Sucursal::getCanton() const { return canton; }
+string Sucursal::getCorreo() const { return correo; }
+string Sucursal::getTelefono() const { return telefono; }
+ColeccionClientes* Sucursal::getColeccionClientes() const { return clientes; }
+int Sucursal::getCantidadInstructores() const { return cantidadInstructores; }
 
-    delete[] instructores;
-    instructores = nuevo;
-    cantInstructores++;
+// Setters
+void Sucursal::setNombre(string nombre) { this->nombre = nombre; }
+void Sucursal::setCodigo(string codigo) { this->codigo = codigo; }
+void Sucursal::setProvincia(string provincia) { this->provincia = provincia; }
+void Sucursal::setCanton(string canton) { this->canton = canton; }
+void Sucursal::setCorreo(string correo) { this->correo = correo; }
+void Sucursal::setTelefono(string telefono) { this->telefono = telefono; }
+
+// Métodos
+bool Sucursal::agregarInstructor(Instructor* inst) {
+    if (cantidadInstructores >= capacidadInstructores) return false;
+    instructores[cantidadInstructores++] = inst;
+    return true;
 }
 
-Instructor* Sucursal::buscarInstructor(const string& ced) const {
-    for (int i = 0; i < cantInstructores; i++) {
-        if (instructores[i]->getCedula() == ced)
+bool Sucursal::eliminarInstructorPorCedula(string cedula) {
+    for (int i = 0; i < cantidadInstructores; i++) {
+        if (instructores[i]->getCedula() == cedula) {
+            delete instructores[i];
+            for (int j = i; j < cantidadInstructores - 1; j++)
+                instructores[j] = instructores[j + 1];
+            cantidadInstructores--;
+            return true;
+        }
+    }
+    return false;
+}
+
+Instructor* Sucursal::buscarInstructorPorCedula(string cedula) {
+    for (int i = 0; i < cantidadInstructores; i++) {
+        if (instructores[i]->getCedula() == cedula)
             return instructores[i];
     }
     return nullptr;
 }
 
-void Sucursal::eliminarInstructor(const string& ced) {
-    int pos = -1;
-    for (int i = 0; i < cantInstructores; i++) {
-        if (instructores[i]->getCedula() == ced) {
-            pos = i;
-            break;
-        }
-    }
-    if (pos == -1) return;
-
-    delete instructores[pos];
-
-    Instructor** nuevo = new Instructor * [cantInstructores - 1];
-    int k = 0;
-    for (int i = 0; i < cantInstructores; i++) {
-        if (i == pos) continue;
-        nuevo[k++] = instructores[i];
-    }
-
-    delete[] instructores;
-    instructores = nuevo;
-    cantInstructores--;
-}
-
-void Sucursal::listarInstructores() const {
-    for (int i = 0; i < cantInstructores; i++)
-        instructores[i]->mostrar();
-}
-
-// Gestión de clientes (delegamos a ColeccionClientes)
-void Sucursal::agregarCliente(Cliente* cli) {
-    clientes->agregarCliente(cli);
-}
-
-Cliente* Sucursal::buscarCliente(const string& ced) const {
-    return clientes->buscarCliente(ced);
-}
-
-void Sucursal::eliminarCliente(const string& ced) {
-    clientes->eliminarCliente(ced);
-}
-
-void Sucursal::listarClientes() const {
-    clientes->mostrarClientes();
-}

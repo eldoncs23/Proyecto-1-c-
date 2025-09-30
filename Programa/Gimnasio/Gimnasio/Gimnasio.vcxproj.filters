@@ -39,9 +39,6 @@
     <ClInclude Include="ColeccionClientes.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ColeccionInstructores.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Gimnasio.cpp">
@@ -69,9 +66,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ColeccionClientes.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ColeccionInstructores.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

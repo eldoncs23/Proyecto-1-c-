@@ -1,252 +1,288 @@
 #include "Interfaz.h"
 
-void Interfaz::menuPrincipal() {
-    int opcion;
+Interfaz::Interfaz() {
+    gimnasio = new Gimnasio("PowerLab");
+}
+
+Interfaz::~Interfaz() {
+    delete gimnasio;
+}
+
+// ========================
+//   MENÚ PRINCIPAL
+// ========================
+void Interfaz::mostrarMenu() {
+    int opcion = 0;
     do {
-        cout << "\n=== MENÚ PRINCIPAL ===\n";
-        cout << "1. Agregar Sucursal\n";
-        cout << "2. Agregar Instructor\n";
-        cout << "3. Agregar Cliente\n";
-        cout << "4. Mostrar Sucursales\n";
-        cout << "5. Mostrar Instructores de una Sucursal\n";
-        cout << "6. Mostrar Clientes de una Sucursal\n";
-        cout << "7. Crear Reporte para un Cliente\n";
-        cout << "8. Mostrar Historial de un Cliente\n";
-        cout << "9. Crear Rutina para un Cliente\n";
-        cout << "10. Mostrar Rutina de un Cliente\n";
-        cout << "11. Eliminar Cliente\n";
-        cout << "12. Eliminar Instructor\n";
-        cout << "13. Eliminar Sucursal\n";
-        cout << "0. Salir\n";
-        cout << "Seleccione una opción: ";
+        cout << "\n===== MENU PRINCIPAL =====" << endl;
+        cout << "1. Crear sucursal" << endl;
+        cout << "2. Crear instructor" << endl;
+        cout << "3. Asignar cliente a instructor" << endl;
+        cout << "4. Crear reporte de cliente" << endl;
+        cout << "5. Mostrar historial de cliente" << endl;
+        cout << "6. Crear rutina de cliente" << endl;
+        cout << "7. Modificar rutina de cliente" << endl;
+        cout << "8. Eliminar rutina de cliente" << endl;
+        cout << "9. Eliminar cliente" << endl;
+        cout << "10. Eliminar instructor" << endl;
+        cout << "11. Crear clase grupal" << endl;
+        cout << "12. Matricular cliente a clase" << endl;
+        cout << "13. Salir" << endl;
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
-        cin.ignore();
 
         switch (opcion) {
         case 1: agregarSucursal(); break;
         case 2: agregarInstructor(); break;
-        case 3: agregarCliente(); break;
-        case 4: mostrarSucursales(); break;
-        case 5: mostrarInstructores(); break;
-        case 6: mostrarClientes(); break;
-        case 7: crearReporte(); break;
-        case 8: mostrarHistorialCliente(); break;
-        case 9: crearRutinaCliente(); break;
-        case 10: mostrarRutinaCliente(); break;
-        case 11: eliminarCliente(); break;
-        case 12: eliminarInstructor(); break;
-        case 13: eliminarSucursal(); break;
-        case 0: cout << "Saliendo...\n"; break;
-        default: cout << "Opción inválida\n"; break;
+        case 3: asignarClienteAInstructor(); break;
+        case 4: crearReporte(); break;
+        case 5: mostrarHistorialCliente(); break;
+        case 6: crearRutinaCliente(); break;
+        case 7: modificarRutinaCliente(); break;
+        case 8: eliminarRutinaCliente(); break;
+        case 9: eliminarCliente(); break;
+        case 10: eliminarInstructor(); break;
+        case 11: crearClaseGrupal(); break;
+        case 12: matricularClienteAClase(); break;
+        case 13: cout << "Saliendo del sistema..." << endl; break;
+        default: cout << "Opcion invalida" << endl; break;
         }
-    } while (opcion != 0);
+    } while (opcion != 13);
 }
 
-// === MÉTODOS ===
+// ========================
+//   METODOS DE OPERACION
+// ========================
 
 void Interfaz::agregarSucursal() {
-    string codigo, nombre, direccion;
-    cout << "Código sucursal: "; getline(cin, codigo);
-    cout << "Nombre sucursal: "; getline(cin, nombre);
-    cout << "Dirección sucursal: "; getline(cin, direccion);
+    string codigo, provincia, canton, correo, telefono, nombre;
 
-    if (gimnasio->buscarSucursal(codigo)) {
-        cout << "Ya existe una sucursal con ese código.\n";
-        return;
-    }
+    cout << "\n-- CREAR SUCURSAL --" << endl;
+    cout << "Nombre: "; cin >> nombre;
+    cout << "Codigo: "; cin >> codigo;
+    cout << "Provincia: "; cin >> provincia;
+    cout << "Canton: "; cin >> canton;
+    cout << "Correo: "; cin >> correo;
+    cout << "Telefono: "; cin >> telefono;
 
-    Sucursal* s = new Sucursal(codigo, nombre, direccion);
-    gimnasio->agregarSucursal(s);
-    cout << "Sucursal agregada correctamente.\n";
+    gimnasio->agregarSucursal(new Sucursal(nombre,codigo, provincia, canton, correo, telefono));
+    cout << "Sucursal creada con exito!" << endl;
 }
 
 void Interfaz::agregarInstructor() {
-    string codSucursal, nombre, cedula, telefono, correo, fechaNac;
-    int cantEsp;
-    cout << "Código de la sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
+    string cedula, nombre, telefono, correo, fechaNac;
+    int especialidad;
 
-    cout << "Nombre del instructor: "; getline(cin, nombre);
-    cout << "Cédula: "; getline(cin, cedula);
-    cout << "Teléfono: "; getline(cin, telefono);
-    cout << "Correo: "; getline(cin, correo);
-    cout << "Fecha de nacimiento (YYYY-MM-DD): "; getline(cin, fechaNac);
-    cout << "Cantidad de especialidades: "; cin >> cantEsp; cin.ignore();
+    cout << "\n-- CREAR INSTRUCTOR --" << endl;
+    cout << "Cedula: "; cin >> cedula;
+    cout << "Nombre completo: "; cin.ignore(); getline(cin, nombre);
+    cout << "Telefono: "; cin >> telefono;
+    cout << "Correo: "; cin >> correo;
+    cout << "Fecha de nacimiento: "; cin >> fechaNac;
+    cout << "Especialidad (5001-5008): "; cin >> especialidad;
 
-    string* esp = new string[cantEsp];
-    for (int i = 0; i < cantEsp; i++) {
-        cout << "Especialidad " << i + 1 << ": "; getline(cin, esp[i]);
+    // pedimos sucursal
+    string codSucursal;
+    cout << "Codigo de sucursal: "; cin >> codSucursal;
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (suc) {
+        Instructor* inst = new Instructor(cedula, nombre, telefono, correo, fechaNac, especialidad);
+        suc->agregarInstructor(inst);
+        cout << "Instructor agregado con exito a la sucursal!" << endl;
+    }
+    else {
+        cout << "Sucursal no encontrada." << endl;
+    }
+}
+
+void Interfaz::asignarClienteAInstructor() {
+    string cedula, nombre, telefono, correo, fechaNac, sexo;
+    string fechaInscripcion;
+    string codSucursal, cedulaInst;
+
+    cout << "\n-- ASIGNAR CLIENTE A INSTRUCTOR --" << endl;
+    cout << "Codigo de sucursal: "; cin >> codSucursal;
+    cout << "Cedula del instructor: "; cin >> cedulaInst;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) {
+        cout << "Sucursal no encontrada." << endl;
+        return;
     }
 
-    Instructor* inst = new Instructor(nombre, cedula, telefono, correo, fechaNac, esp, cantEsp);
-    s->agregarInstructor(inst);
-    cout << "Instructor agregado correctamente.\n";
-    delete[] esp;
+    Instructor* inst = suc->buscarInstructor(cedulaInst);
+    if (!inst) {
+        cout << "Instructor no encontrado." << endl;
+        return;
+    }
+
+    cout << "Cedula cliente: "; cin >> cedula;
+    cout << "Nombre: "; cin.ignore(); getline(cin, nombre);
+    cout << "Telefono: "; cin >> telefono;
+    cout << "Correo: "; cin >> correo;
+    cout << "Fecha de nacimiento: "; cin >> fechaNac;
+    cout << "Sexo: "; cin >> sexo;
+    cout << "Fecha de inscripcion: "; cin >> fechaInscripcion;
+
+    Cliente* cli = new Cliente(cedula, nombre, telefono, correo, fechaNac, sexo, fechaInscripcion);
+    suc->getColeccionClientes()->agregarCliente(cli);
+    inst->asignarCliente(cli);
+
+    cout << "Cliente asignado correctamente!" << endl;
 }
 
-void Interfaz::agregarCliente() {
-    string codSucursal, nombre, cedula, telefono, correo, fechaNac, sexo, fechaIns;
-    cout << "Código de la sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
-
-    cout << "Nombre del cliente: "; getline(cin, nombre);
-    cout << "Cédula: "; getline(cin, cedula);
-    cout << "Teléfono: "; getline(cin, telefono);
-    cout << "Correo: "; getline(cin, correo);
-    cout << "Fecha de nacimiento (YYYY-MM-DD): "; getline(cin, fechaNac);
-    cout << "Sexo (M/F): "; getline(cin, sexo);
-    cout << "Fecha de inscripción (YYYY-MM-DD): "; getline(cin, fechaIns);
-
-    Cliente* cli = new Cliente(nombre, cedula, telefono, correo, fechaNac, sexo, fechaIns);
-    s->agregarCliente(cli);
-    cout << "Cliente agregado correctamente.\n";
-}
-
-void Interfaz::mostrarSucursales() { gimnasio->mostrarSucursales(); }
-
-void Interfaz::mostrarInstructores() {
-    string codSucursal;
-    cout << "Código de la sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
-    s->listarInstructores();
-}
-
-void Interfaz::mostrarClientes() {
-    string codSucursal;
-    cout << "Código de la sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
-    s->listarClientes();
-}
-
-// Crear Reporte (llama al Instructor)
 void Interfaz::crearReporte() {
-    string codSucursal, cedInstructor, cedCliente;
-    double peso, altura, grasa = 0, musculo = 0, cintura = 0, cadera = 0, pecho = 0, muslo = 0;
-    int edad = 0, edadMet = 0;
-    string sexo, comentario;
-    bool haceEjercicio;
-    char opcion;
+    string codSucursal, cedulaInst, cedulaCli;
+    cout << "\n-- CREAR REPORTE --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula instructor: "; cin >> cedulaInst;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
 
-    cout << "Código sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
 
-    cout << "Cédula instructor: "; getline(cin, cedInstructor);
-    Instructor* inst = s->buscarInstructor(cedInstructor);
-    if (!inst) { cout << "Instructor no encontrado.\n"; return; }
+    Instructor* inst = suc->buscarInstructor(cedulaInst);
+    if (!inst) { cout << "Instructor no encontrado." << endl; return; }
 
-    cout << "Cédula cliente: "; getline(cin, cedCliente);
-    Cliente* cli = s->buscarCliente(cedCliente);
-    if (!cli) { cout << "Cliente no encontrado.\n"; return; }
+    Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
+    if (!cli) { cout << "Cliente no encontrado." << endl; return; }
 
-    cout << "Peso (kg): "; cin >> peso;
-    cout << "Altura (m): "; cin >> altura;
-    cout << "Edad: "; cin >> edad; cin.ignore();
-    cout << "Sexo (M/F): "; getline(cin, sexo);
-    cout << "Hace ejercicio? (1=Sí, 0=No): "; cin >> haceEjercicio; cin.ignore();
-
-    cout << "Desea ingresar mediciones opcionales? (s/n): "; cin >> opcion; cin.ignore();
-    if (opcion == 's' || opcion == 'S') {
-        cout << "Porcentaje grasa: "; cin >> grasa;
-        cout << "Porcentaje musculo: "; cin >> musculo;
-        cout << "Edad metabolica: "; cin >> edadMet;
-        cout << "Medidas (cintura cadera pecho muslo): "; cin >> cintura >> cadera >> pecho >> muslo; cin.ignore();
-        cout << "Comentario opcional del instructor (max 100 caracteres): "; getline(cin, comentario);
-    }
-
-    inst->crearReporte(cli, peso, altura, edad, sexo, haceEjercicio,
-        grasa, musculo, edadMet, cintura, cadera, pecho, muslo, comentario);
-
-    cout << "Reporte agregado correctamente.\n";
+    inst->crearReporteParaCliente(cli);
 }
 
-// Mostrar historial
 void Interfaz::mostrarHistorialCliente() {
-    string codSucursal, cedCliente;
-    cout << "Código de la sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
+    string codSucursal, cedulaCli;
+    cout << "\n-- MOSTRAR HISTORIAL DE CLIENTE --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
 
-    cout << "Cédula cliente: "; getline(cin, cedCliente);
-    Cliente* cli = s->buscarCliente(cedCliente);
-    if (!cli) { cout << "Cliente no encontrado.\n"; return; }
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
 
-    cli->getHistorial()->mostrarHistorial();
+    Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
+    if (!cli) { cout << "Cliente no encontrado." << endl; return; }
+
+    cli->getHistorial()->mostrarReportes();
 }
 
-// Crear Rutina
 void Interfaz::crearRutinaCliente() {
-    string codSucursal, cedCliente;
-    cout << "Código sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
+    string codSucursal, cedulaInst, cedulaCli;
+    cout << "\n-- CREAR RUTINA --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula instructor: "; cin >> cedulaInst;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
 
-    cout << "Cédula cliente: "; getline(cin, cedCliente);
-    Cliente* cli = s->buscarCliente(cedCliente);
-    if (!cli) { cout << "Cliente no encontrado.\n"; return; }
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
 
-    Instructor* inst = nullptr;
-    if (s->getCantInstructores() > 0) inst = s->getInstructor(0);
-    if (!inst) { cout << "No hay instructor disponible.\n"; return; }
+    Instructor* inst = suc->buscarInstructor(cedulaInst);
+    if (!inst) { cout << "Instructor no encontrado." << endl; return; }
 
-    inst->crearRutina(cli);
-    cout << "Rutina creada correctamente.\n";
+    Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
+    if (!cli) { cout << "Cliente no encontrado." << endl; return; }
+
+    inst->crearRutinaParaCliente(cli);
 }
 
-// Mostrar Rutina
-void Interfaz::mostrarRutinaCliente() {
-    string codSucursal, cedCliente;
-    cout << "Código sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
+void Interfaz::modificarRutinaCliente() {
+    string codSucursal, cedulaInst, cedulaCli;
+    cout << "\n-- MODIFICAR RUTINA --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula instructor: "; cin >> cedulaInst;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
 
-    cout << "Cédula cliente: "; getline(cin, cedCliente);
-    Cliente* cli = s->buscarCliente(cedCliente);
-    if (!cli) { cout << "Cliente no encontrado.\n"; return; }
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
 
-    cli->mostrarRutina();
+    Instructor* inst = suc->buscarInstructor(cedulaInst);
+    if (!inst) { cout << "Instructor no encontrado." << endl; return; }
+
+    Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
+    if (!cli) { cout << "Cliente no encontrado." << endl; return; }
+
+    inst->modificarRutinaDeCliente(cli);
 }
 
-// Eliminar Cliente
+void Interfaz::eliminarRutinaCliente() {
+    string codSucursal, cedulaCli;
+    cout << "\n-- ELIMINAR RUTINA --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
+    if (!cli) { cout << "Cliente no encontrado." << endl; return; }
+
+    cli->setRutinaActual("");
+    cout << "Rutina eliminada correctamente." << endl;
+}
+
 void Interfaz::eliminarCliente() {
-    string codSucursal, cedCliente;
-    cout << "Código de la sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
+    string codSucursal, cedulaCli;
+    cout << "\n-- ELIMINAR CLIENTE --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
 
-    cout << "Cédula cliente a eliminar: "; getline(cin, cedCliente);
-    if (s->eliminarCliente(cedCliente))
-        cout << "Cliente eliminado correctamente.\n";
-    else
-        cout << "Cliente no encontrado.\n";
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    if (suc->getColeccionClientes()->eliminarCliente(cedulaCli)) {
+        cout << "Cliente eliminado correctamente." << endl;
+    }
+    else {
+        cout << "Cliente no encontrado." << endl;
+    }
 }
 
-// Eliminar Instructor
 void Interfaz::eliminarInstructor() {
-    string codSucursal, cedInstructor;
-    cout << "Código de la sucursal: "; getline(cin, codSucursal);
-    Sucursal* s = gimnasio->buscarSucursal(codSucursal);
-    if (!s) { cout << "Sucursal no encontrada.\n"; return; }
+    string codSucursal, cedulaInst;
+    cout << "\n-- ELIMINAR INSTRUCTOR --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula instructor: "; cin >> cedulaInst;
 
-    cout << "Cédula instructor a eliminar: "; getline(cin, cedInstructor);
-    if (s->eliminarInstructor(cedInstructor))
-        cout << "Instructor eliminado correctamente.\n";
-    else
-        cout << "Instructor no encontrado.\n";
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    if (suc->eliminarInstructor(cedulaInst)) {
+        cout << "Instructor eliminado correctamente." << endl;
+    }
+    else {
+        cout << "Instructor no encontrado." << endl;
+    }
 }
 
-// Eliminar Sucursal
-void Interfaz::eliminarSucursal() {
+void Interfaz::crearClaseGrupal() {
     string codSucursal;
-    cout << "Código de la sucursal a eliminar: "; getline(cin, codSucursal);
-    if (gimnasio->eliminarSucursal(codSucursal))
-        cout << "Sucursal eliminada correctamente.\n";
-    else
-        cout << "Sucursal no encontrada.\n";
+    int tipo;
+    string cedulaInst;
+
+    cout << "\n-- CREAR CLASE GRUPAL --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Tipo de clase (5001-5008): "; cin >> tipo;
+    cout << "Cedula del instructor: "; cin >> cedulaInst;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    suc->crearClaseGrupal(tipo, cedulaInst);
 }
 
+void Interfaz::matricularClienteAClase() {
+    string codSucursal, cedulaCli;
+    int idClase;
 
+    cout << "\n-- MATRICULAR CLIENTE A CLASE --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "ID clase grupal: "; cin >> idClase;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
+    if (!cli) { cout << "Cliente no encontrado." << endl; return; }
+
+    suc->matricularClienteEnClase(idClase, cli);
+}

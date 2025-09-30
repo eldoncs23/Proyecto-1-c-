@@ -1,27 +1,23 @@
-#pragma once
-#include "Cliente.h"
+#define COLECCIONCLIENTES_H
+
 #include <iostream>
+#include "Cliente.h"
 using namespace std;
 
 class ColeccionClientes {
 private:
-    Cliente** clientes;
-    int cantClientes;
+    Cliente** clientes; // vector dinámico de clientes
+    int cantidad;
+    int capacidadMax;
 
 public:
-    ColeccionClientes();
+    // Constructor y destructor
+    ColeccionClientes(int max = 50);
     ~ColeccionClientes();
 
+    // Métodos
     bool agregarCliente(Cliente* cli);
-    bool eliminarCliente(const string& cedula);
-    Cliente* buscarCliente(const string& cedula) const;
-
-    void mostrarClientes() const;
-
-    // Rutinas
-    bool asignarRutina(Cliente* cli, string* ejercicios, int n);
+    bool eliminarClientePorCedula(string cedula);
+    Cliente* buscarClientePorCedula(string cedula);
+    int getCantidadClientes() const;
 };
-
-
-
-

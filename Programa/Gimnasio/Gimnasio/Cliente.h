@@ -1,9 +1,8 @@
-#pragma once
 #define CLIENTE_H
 
-#include "Reporte.h"
-#include "Historial.h"
+#include <iostream>
 #include <string>
+#include "Historial.h"
 using namespace std;
 
 class Cliente {
@@ -15,46 +14,40 @@ private:
     string fechaNacimiento;
     string sexo;
     string fechaInscripcion;
-
-    // Historial de reportes (colección)
-    Historial* historial;
-
-    // Rutina actual asignada
-    string* rutina;
-    int cantEjercicios;
+    string rutinaActual;
+    Historial* historial; // Historial de reportes del cliente
 
 public:
-    Cliente(string nom, string ced, string tel, string corr, string fecha,
-        const string& sexo, const string& fechaInscripcion);
+    // Constructores
+    Cliente();
+    Cliente(string nombre, string cedula, string telefono, string correo,
+        string fechaNacimiento, string sexo, string fechaInscripcion);
+
+    // Destructor
     ~Cliente();
 
-    void mostrar() const;
-    void mostrarHistorial() const;
-    void mostrarRutina() const;
+    // Setters
+    void setNombre(string nombre);
+    void setCedula(string cedula);
+    void setTelefono(string telefono);
+    void setCorreo(string correo);
+    void setFechaNacimiento(string fechaNacimiento);
+    void setSexo(string sexo);
+    void setFechaInscripcion(string fechaInscripcion);
+    void setRutinaActual(string rutina);
 
-    // Gets
-    string getCedula() const { return cedula; }
-    string getNombre() const { return nombre; }
-    string getTelefono() const { return telefono; }
-    string getCorreo() const { return correo; }
-    string getFechaNacimiento() const { return fechaNacimiento; }
-    string getSexo() const { return sexo; }
-    string getFechaInscripcion() const { return fechaInscripcion; }
-    Historial* getHistorial() const { return historial; }
-    int getCantEjercicios() const { return cantEjercicios; }
-    string* getRutina() const { return rutina; }
+    // Getters
+    string getNombre() const;
+    string getCedula() const;
+    string getTelefono() const;
+    string getCorreo() const;
+    string getFechaNacimiento() const;
+    string getSexo() const;
+    string getFechaInscripcion() const;
+    string getRutinaActual() const;
 
-    // Sets
-    void setTelefono(const string& t) { telefono = t; }
-    void setCorreo(const string& c) { correo = c; }
-    void setFechaNacimiento(const string& f) { fechaNacimiento = f; }
-    void setSexo(const string& s) { sexo = s; }
-    void setFechaInscripcion(const string& f) { fechaInscripcion = f; }
-    void setNombre(const string& n) { nombre = n; }
-    void setCedula(const string& c) { cedula = c; }
-
-    // Rutina
-    void asignarRutina(string* ejercicios, int n);
+    // Historial
+    Historial* getHistorial() const;
 };
 
 

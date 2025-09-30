@@ -1,9 +1,103 @@
-﻿  Gimnasio.cpp
-  Interfaz.cpp
-F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(180,16): error C2084: la función 'void Interfaz::crearReporte(void)' ya tiene un cuerpo
-      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(122,16):
-      vea la definición anterior de “Interfaz::crearReporte”
+﻿  Cliente.cpp
+  ColeccionClientes.cpp
+  Gimnasio.cpp
+  Historial.cpp
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7): error C2011: 'Reporte': nueva definición del tipo 'class'
+  (compilando archivo de origen "Gimnasio.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7):
+      vea la declaración de 'Reporte'
   
-F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Interfaz.cpp(218,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7): error C2011: 'Historial': nueva definición del tipo 'class'
+  (compilando archivo de origen "Gimnasio.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7):
+      vea la declaración de 'Historial'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,7): error C2011: 'Cliente': nueva definición del tipo 'class'
+  (compilando archivo de origen "Gimnasio.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,7):
+      vea la declaración de 'Cliente'
+  
+  Instructor.cpp
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7): error C2011: 'Reporte': nueva definición del tipo 'class'
+  (compilando archivo de origen "Instructor.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7):
+      vea la declaración de 'Reporte'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7): error C2011: 'Historial': nueva definición del tipo 'class'
+  (compilando archivo de origen "Instructor.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7):
+      vea la declaración de 'Historial'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.cpp(75,31): error C2027: uso del tipo 'Reporte' sin definir
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7):
+      vea la declaración de 'Reporte'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.cpp(76,22): error C2027: uso del tipo 'Historial' sin definir
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7):
+      vea la declaración de 'Historial'
+  
+  Interfaz.cpp
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7): error C2011: 'Reporte': nueva definición del tipo 'class'
+  (compilando archivo de origen "Interfaz.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7):
+      vea la declaración de 'Reporte'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7): error C2011: 'Historial': nueva definición del tipo 'class'
+  (compilando archivo de origen "Interfaz.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7):
+      vea la declaración de 'Historial'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,7): error C2011: 'Cliente': nueva definición del tipo 'class'
+  (compilando archivo de origen "Interfaz.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,7):
+      vea la declaración de 'Cliente'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(8,7): error C2011: 'Instructor': nueva definición del tipo 'class'
+  (compilando archivo de origen "Interfaz.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Instructor.h(8,7):
+      vea la declaración de 'Instructor'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\ColeccionClientes.h(7,7): error C2011: 'ColeccionClientes': nueva definición del tipo 'class'
+  (compilando archivo de origen "Interfaz.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\ColeccionClientes.h(7,7):
+      vea la declaración de 'ColeccionClientes'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(9,7): error C2011: 'Sucursal': nueva definición del tipo 'class'
+  (compilando archivo de origen "Interfaz.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Sucursal.h(9,7):
+      vea la declaración de 'Sucursal'
+  
   main.cpp
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7): error C2011: 'Reporte': nueva definición del tipo 'class'
+  (compilando archivo de origen "main.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7):
+      vea la declaración de 'Reporte'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7): error C2011: 'Historial': nueva definición del tipo 'class'
+  (compilando archivo de origen "main.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7):
+      vea la declaración de 'Historial'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,7): error C2011: 'Cliente': nueva definición del tipo 'class'
+  (compilando archivo de origen "main.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,7):
+      vea la declaración de 'Cliente'
+  
+  Reporte.cpp
+  Sucursal.cpp
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7): error C2011: 'Reporte': nueva definición del tipo 'class'
+  (compilando archivo de origen "Sucursal.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Reporte.h(7,7):
+      vea la declaración de 'Reporte'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7): error C2011: 'Historial': nueva definición del tipo 'class'
+  (compilando archivo de origen "Sucursal.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Historial.h(7,7):
+      vea la declaración de 'Historial'
+  
+F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,7): error C2011: 'Cliente': nueva definición del tipo 'class'
+  (compilando archivo de origen "Sucursal.cpp")
+      F:\Github\Proyecto-1-c-\Programa\Gimnasio\Gimnasio\Cliente.h(8,7):
+      vea la declaración de 'Cliente'
+  
   Generando código...

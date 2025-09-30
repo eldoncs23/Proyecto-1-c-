@@ -3,56 +3,72 @@
   "WorkspaceRootPath": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Instructor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Instructor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Interfaz.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Reporte.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Reporte.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Gimnasio.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Gimnasio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Historial.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Historial.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Interfaz.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Gimnasio.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Instructor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\ColeccionClientes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\ColeccionClientes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Cliente.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Interfaz.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Gimnasio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Sucursal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Sucursal.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Sucursal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Instructor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\ColeccionClientes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\ColeccionClientes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Historial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Historial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Reporte.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{41E0BBE9-ACBF-4BB7-95EB-733E746C0045}|Gimnasio\\Gimnasio.vcxproj|solutionrelative:Gimnasio\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,168 +78,228 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Interfaz.cpp",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.cpp",
-              "RelativeDocumentMoniker": "Gimnasio\\Interfaz.cpp",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.cpp",
-              "RelativeToolTip": "Gimnasio\\Interfaz.cpp",
-              "ViewState": "AgIAABYBAAAAAAAAAAAUwNsAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-28T10:14:37.8Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Interfaz.h",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.h",
-              "RelativeDocumentMoniker": "Gimnasio\\Interfaz.h",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.h",
-              "RelativeToolTip": "Gimnasio\\Interfaz.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-28T10:14:15.615Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Gimnasio.cpp",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.cpp",
-              "RelativeDocumentMoniker": "Gimnasio\\Gimnasio.cpp",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.cpp",
-              "RelativeToolTip": "Gimnasio\\Gimnasio.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-28T01:17:35.281Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Instructor.cpp",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.cpp",
-              "RelativeDocumentMoniker": "Gimnasio\\Instructor.cpp",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.cpp",
-              "RelativeToolTip": "Gimnasio\\Instructor.cpp",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAAAIgAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-28T00:37:18.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Sucursal.h",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.h",
-              "RelativeDocumentMoniker": "Gimnasio\\Sucursal.h",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.h",
-              "RelativeToolTip": "Gimnasio\\Sucursal.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-28T00:34:52.564Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Sucursal.cpp",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.cpp",
-              "RelativeDocumentMoniker": "Gimnasio\\Sucursal.cpp",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.cpp",
-              "RelativeToolTip": "Gimnasio\\Sucursal.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-28T01:19:37.059Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Reporte.h",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.h",
-              "RelativeDocumentMoniker": "Gimnasio\\Reporte.h",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.h",
-              "RelativeToolTip": "Gimnasio\\Reporte.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-28T00:35:38.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Reporte.cpp",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.cpp",
-              "RelativeDocumentMoniker": "Gimnasio\\Reporte.cpp",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.cpp",
-              "RelativeToolTip": "Gimnasio\\Reporte.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-28T01:24:34.52Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "main.cpp",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\main.cpp",
-              "RelativeDocumentMoniker": "Gimnasio\\main.cpp",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\main.cpp",
-              "RelativeToolTip": "Gimnasio\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-28T00:36:04.089Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Cliente.h",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.h",
-              "RelativeDocumentMoniker": "Gimnasio\\Cliente.h",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.h",
-              "RelativeToolTip": "Gimnasio\\Cliente.h",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAABkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-28T00:35:29.984Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Cliente.cpp",
-              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.cpp",
-              "RelativeDocumentMoniker": "Gimnasio\\Cliente.cpp",
-              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.cpp",
-              "RelativeToolTip": "Gimnasio\\Cliente.cpp",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAEwC8AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-28T01:24:19.601Z"
+              "Title": "ColeccionClientes.h",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\ColeccionClientes.h",
+              "RelativeDocumentMoniker": "Gimnasio\\ColeccionClientes.h",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\ColeccionClientes.h",
+              "RelativeToolTip": "Gimnasio\\ColeccionClientes.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAiwBMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-30T03:00:38.365Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Historial.h",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Historial.h",
+              "RelativeDocumentMoniker": "Gimnasio\\Historial.h",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Historial.h",
+              "RelativeToolTip": "Gimnasio\\Historial.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-30T02:55:52.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Instructor.h",
               "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.h",
               "RelativeDocumentMoniker": "Gimnasio\\Instructor.h",
               "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.h",
               "RelativeToolTip": "Gimnasio\\Instructor.h",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAiwBQAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-09-28T00:35:23.474Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Interfaz.h",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.h",
+              "RelativeDocumentMoniker": "Gimnasio\\Interfaz.h",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.h",
+              "RelativeToolTip": "Gimnasio\\Interfaz.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-28T10:14:15.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Gimnasio.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\Gimnasio.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.cpp",
+              "RelativeToolTip": "Gimnasio\\Gimnasio.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-28T01:17:35.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Reporte.h",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.h",
+              "RelativeDocumentMoniker": "Gimnasio\\Reporte.h",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.h",
+              "RelativeToolTip": "Gimnasio\\Reporte.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-28T00:35:38.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Cliente.h",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.h",
+              "RelativeDocumentMoniker": "Gimnasio\\Cliente.h",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.h",
+              "RelativeToolTip": "Gimnasio\\Cliente.h",
+              "ViewState": "AgIAABQAAAAAAAAAAAAiwCQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-28T00:35:29.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "Interfaz.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\Interfaz.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Interfaz.cpp",
+              "RelativeToolTip": "Gimnasio\\Interfaz.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-28T10:14:37.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Gimnasio.h",
               "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.h",
               "RelativeDocumentMoniker": "Gimnasio\\Gimnasio.h",
               "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Gimnasio.h",
               "RelativeToolTip": "Gimnasio\\Gimnasio.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAUAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-28T00:34:17.631Z"
+              "WhenOpened": "2025-09-28T00:34:17.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Sucursal.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\Sucursal.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.cpp",
+              "RelativeToolTip": "Gimnasio\\Sucursal.cpp",
+              "ViewState": "AgIAADUAAAAAAAAAAADwv1MAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-28T01:19:37.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Sucursal.h",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.h",
+              "RelativeDocumentMoniker": "Gimnasio\\Sucursal.h",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Sucursal.h",
+              "RelativeToolTip": "Gimnasio\\Sucursal.h",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-28T00:34:52.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Instructor.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\Instructor.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Instructor.cpp",
+              "RelativeToolTip": "Gimnasio\\Instructor.cpp",
+              "ViewState": "AgIAAD8AAAAAAAAAAADwvz8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-28T00:37:18.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ColeccionClientes.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\ColeccionClientes.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\ColeccionClientes.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\ColeccionClientes.cpp",
+              "RelativeToolTip": "Gimnasio\\ColeccionClientes.cpp",
+              "ViewState": "AgIAABcAAAAAAAAAAADwvyYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-30T03:00:50.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Historial.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Historial.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\Historial.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Historial.cpp",
+              "RelativeToolTip": "Gimnasio\\Historial.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-30T03:08:21.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Reporte.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\Reporte.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Reporte.cpp",
+              "RelativeToolTip": "Gimnasio\\Reporte.cpp",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAuwEkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-28T01:24:34.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Cliente.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\Cliente.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\Cliente.cpp",
+              "RelativeToolTip": "Gimnasio\\Cliente.cpp",
+              "ViewState": "AgIAABsAAAAAAAAAAAAuwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-28T01:24:19.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "main.cpp",
+              "DocumentMoniker": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\main.cpp",
+              "RelativeDocumentMoniker": "Gimnasio\\main.cpp",
+              "ToolTip": "F:\\Github\\Proyecto-1-c-\\Programa\\Gimnasio\\Gimnasio\\main.cpp",
+              "RelativeToolTip": "Gimnasio\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-28T00:36:04.089Z",
+              "EditorCaption": ""
             }
           ]
         }

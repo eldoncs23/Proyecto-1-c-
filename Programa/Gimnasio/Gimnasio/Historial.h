@@ -1,30 +1,24 @@
-#pragma once
-#include "Reporte.h"
+#define HISTORIAL_H
+
 #include <iostream>
+#include "Reporte.h"
 using namespace std;
 
 class Historial {
 private:
-    Reporte** reportes;
-    int cantReportes;
-    const int MAX_REPORTES = 10; // máximo 10 mediciones por cliente
+    Reporte** reportes; // arreglo dinámico de punteros a Reporte
+    int cantidad;
+    int capacidadMax;
 
 public:
+    // Constructores y destructor
     Historial();
     ~Historial();
 
-    // Gestión de reportes
+    // Métodos
     bool agregarReporte(Reporte* rep);
-    bool eliminarReporte(int pos);
+    bool eliminarReporte(int index); // por posición
     void vaciarHistorial();
-
-    Reporte* getUltimoReporte() const;
-
-    // Mostrar historial
-    void mostrarHistorial() const;
-
-    int getCantReportes() const { return cantReportes; }
+    Reporte* getReporte(int index) const;
+    int getCantidad() const;
 };
-
-
-

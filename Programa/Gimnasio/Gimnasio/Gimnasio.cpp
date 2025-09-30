@@ -1,77 +1,52 @@
 #include "Gimnasio.h"
-#include <iostream>
-using namespace std;
 
-Gimnasio::Gimnasio(const string& nom) {
-    nombre = nom;
-    sucursales = nullptr;
-    cantSucursales = 0;
+// Constructor por defecto
+Gimnasio::Gimnasio() {
+    nombre = "";
+    capacidadSucursales = 10;
+    cantidadSucursales = 0;
+    sucursales = new Sucursal * [capacidadSucursales];
 }
 
+// Constructor con parámetros
+Gimnasio::Gimnasio(string nombre, int maxSucursales) {
+    this->nombre = nombre;
+    capacidadSucursales = (maxSucursales > 0) ? maxSucursales : 30;
+    cantidadSucursales = 0;
+    sucursales = new Sucursal * [capacidadSucursales];
+}
+
+// Destructor
 Gimnasio::~Gimnasio() {
-    for (int i = 0; i < cantSucursales; i++) {
+    for (int i = 0; i < cantidadSucursales; i++)
         delete sucursales[i];
-    }
     delete[] sucursales;
 }
 
-void Gimnasio::agregarSucursal(Sucursal* s) {
-    Sucursal** nuevo = new Sucursal * [cantSucursales + 1];
-    for (int i = 0; i < cantSucursales; i++) {
-        nuevo[i] = sucursales[i];
-    }
-    nuevo[cantSucursales] = s;
-
-    delete[] sucursales;
-    sucursales = nuevo;
-    cantSucursales++;
+// Getters
+string Gimnasio::getNombre() const { return nombre; }
+int Gimnasio::getCantidadSucursales() const { return cantidadSucursales; }
+Sucursal* Gimnasio::getSucursal(int index) const {
+    if (index < 0 || index >= cantidadSucursales) return nullptr;
+    return sucursales[index];
 }
 
-void Gimnasio::mostrarSucursales() const {
-    if (cantSucursales == 0) {
-        cout << "No hay sucursales registradas.\n";
-        return;
-    }
-    cout << "--- Sucursales del gimnasio " << nombre << " ---\n";
-    for (int i = 0; i < cantSucursales; i++) {
-        if (sucursales[i]) sucursales[i]->mostrar();
-    }
+// Setter
+void Gimnasio::setNombre(string nombre) { this->nombre = nombre; }
+
+// Métodos
+bool Gimnasio::agregarSucursal(Sucursal* suc) {
+    if (cantidadSucursales >= capacidadSucursales) return false;
+    sucursales[cantidadSucursales++] = suc;
+    return true;
 }
 
-Sucursal* Gimnasio::buscarSucursal(const string& codigo) const {
-    for (int i = 0; i < cantSucursales; i++) {
+Sucursal* Gimnasio::buscarSucursalPorCodigo(string codigo) {
+    for (int i = 0; i < cantidadSucursales; i++) {
         if (sucursales[i]->getCodigo() == codigo)
             return sucursales[i];
     }
     return nullptr;
 }
 
-void Gimnasio::eliminarSucursal(const string& codigo) {
-    int pos = -1;
-    for (int i = 0; i < cantSucursales; i++) {
-        if (sucursales[i]->getCodigo() == codigo) {
-            pos = i;
-            break;
-        }
-    }
-    if (pos == -1) {
-        cout << "Sucursal no encontrada.\n";
-        return;
-    }
-
-    delete sucursales[pos];
-
-    // compactar arreglo
-    Sucursal** nuevo = new Sucursal * [cantSucursales - 1];
-    int k = 0;
-    for (int i = 0; i < cantSucursales; i++) {
-        if (i == pos) continue;
-        nuevo[k++] = sucursales[i];
-    }
-    delete[] sucursales;
-    sucursales = nuevo;
-    cantSucursales--;
-
-    cout << "Sucursal eliminada.\n";
-}
 

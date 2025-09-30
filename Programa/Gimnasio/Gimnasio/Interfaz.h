@@ -1,31 +1,43 @@
-#pragma once
-#include "Gimnasio.h"
+#define INTERFAZ_H
+
 #include <iostream>
 #include <string>
+#include "Gimnasio.h"
+#include "Sucursal.h"
+#include "Instructor.h"
+#include "Cliente.h"
+#include "Historial.h"
+#include "Reporte.h"
+
 using namespace std;
 
 class Interfaz {
 private:
-    Gimnasio* gimnasio;
-
-    // Métodos internos
-    void agregarSucursal();
-    void agregarInstructor();
-    void agregarCliente();
-    void mostrarSucursales();
-    void mostrarInstructores();
-    void mostrarClientes();
-    void crearReporte();
-    void mostrarHistorialCliente();
-    void crearRutinaCliente();
-    void mostrarRutinaCliente();
-    void eliminarCliente();
-    void eliminarInstructor();
-    void eliminarSucursal();
-    void vaciarHistorialCliente();
-    void eliminarRutinaCliente();
+    Gimnasio* gimnasio; // relación de composición con gimnasio
 
 public:
-    Interfaz(Gimnasio* gym) : gimnasio(gym) {}
-    void menuPrincipal();
+    // Constructor / destructor
+    Interfaz();
+    ~Interfaz();
+
+    // Menú principal
+    void mostrarMenu();
+
+    // Métodos de operaciones principales
+    void agregarSucursal();
+    void agregarInstructor();
+    void asignarClienteAInstructor();
+
+    void crearReporte();
+    void mostrarHistorialCliente();
+
+    void crearRutinaCliente();
+    void modificarRutinaCliente();
+    void eliminarRutinaCliente();
+
+    // (Opcionales extra para tu flujo completo)
+    void eliminarCliente();
+    void eliminarInstructor();
+    void crearClaseGrupal();
+    void matricularClienteAClase();
 };

@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="ColeccionClientes.h" />
-    <ClInclude Include="ColeccionInstructores.h" />
     <ClInclude Include="Gimnasio.h" />
     <ClInclude Include="Historial.h" />
     <ClInclude Include="Instructor.h" />
@@ -136,7 +135,6 @@
   <ItemGroup>
     <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="ColeccionClientes.cpp" />
-    <ClCompile Include="ColeccionInstructores.cpp" />
     <ClCompile Include="Gimnasio.cpp" />
     <ClCompile Include="Historial.cpp" />
     <ClCompile Include="Instructor.cpp" />

@@ -1,58 +1,70 @@
-#pragma once
 #define REPORTE_H
-
+#pragma once
+#include <iostream>
 #include <string>
 using namespace std;
 
 class Reporte {
 private:
-    double peso;
-    double altura;
-    int edad;
-    string sexo;
-    bool haceEjercicio;
     string fecha;
-    double imc;
-
-    // Datos corporales
+    string nombreCliente;
+    string cedulaCliente;
+    string nombreInstructor;
+    double peso;
+    double estatura;
     double porcentajeGrasa;
     double porcentajeMusculo;
+    double grasaVisceral;
     int edadMetabolica;
-    double cintura;
-    double cadera;
-    double pecho;
-    double muslo;
-
-    // Comentario opcional del instructor
-    string comentario;
-
-    void calcularIMC();
+    double cintura, cadera, pecho, muslo;
+    double imc;
+    double proteinaDiaria;
+    double vasosAgua;
 
 public:
-    Reporte(double peso, double altura, int edad, const string& sexo, bool ejercicio);
-
-    // Getters
-    double getIMC() const { return imc; }
-    string getFecha() const { return fecha; }
-    string getComentario() const { return comentario; }
+    // Constructores
+    Reporte();
+    Reporte(string fecha, string nombreCliente, string cedulaCliente, string nombreInstructor,
+        double peso, double estatura, double porcentajeGrasa, double porcentajeMusculo,
+        double grasaVisceral, int edadMetabolica, double cintura, double cadera,
+        double pecho, double muslo);
 
     // Setters
-    void setFecha(const string& f) { fecha = f; }
-    void setPorcentajeGrasa(double g) { porcentajeGrasa = g; }
-    void setPorcentajeMusculo(double m) { porcentajeMusculo = m; }
-    void setEdadMetabolica(int e) { edadMetabolica = e; }
-    void setCintura(double c) { cintura = c; }
-    void setCadera(double c) { cadera = c; }
-    void setPecho(double p) { pecho = p; }
-    void setMuslo(double m) { muslo = m; }
-    void setComentario(const string& c) { comentario = c; }
+    void setFecha(string fecha);
+    void setNombreCliente(string nombreCliente);
+    void setCedulaCliente(string cedulaCliente);
+    void setNombreInstructor(string nombreInstructor);
+    void setPeso(double peso);
+    void setEstatura(double estatura);
+    void setPorcentajeGrasa(double porcentajeGrasa);
+    void setPorcentajeMusculo(double porcentajeMusculo);
+    void setGrasaVisceral(double grasaVisceral);
+    void setEdadMetabolica(int edadMetabolica);
+    void setCintura(double cintura);
+    void setCadera(double cadera);
+    void setPecho(double pecho);
+    void setMuslo(double muslo);
+
+    // Getters
+    string getFecha() const;
+    string getNombreCliente() const;
+    string getCedulaCliente() const;
+    string getNombreInstructor() const;
+    double getPeso() const;
+    double getEstatura() const;
+    double getPorcentajeGrasa() const;
+    double getPorcentajeMusculo() const;
+    double getGrasaVisceral() const;
+    int getEdadMetabolica() const;
+    double getCintura() const;
+    double getCadera() const;
+    double getPecho() const;
+    double getMuslo() const;
 
     // Cálculos
-    double calcularProteinas() const;
-    double calcularAgua() const;
-
-    // Mostrar
-    void mostrarReporte() const;
+    void calcularIMC();
+    double getIMC() const;
+    void calcularProteinaYAgua(string sexo, bool haceEjercicio);
+    double getProteinaDiaria() const;
+    double getVasosAgua() const;
 };
-
-
