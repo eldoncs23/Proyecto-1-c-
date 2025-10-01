@@ -18,4 +18,6 @@ public:
     bool eliminarCliente(const string& cedula);   // nombre usado en interfaz
     Cliente* buscarCliente(const string& cedula); // nombre usado en interfaz
     int getCantidadClientes() const { return cantidad; }
+    Cliente* getClientePorIndice(int index) const;
+
 };

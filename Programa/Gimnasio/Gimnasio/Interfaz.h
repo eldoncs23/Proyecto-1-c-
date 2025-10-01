@@ -9,6 +9,7 @@
 #include "Cliente.h"
 #include "Historial.h"
 #include "Reporte.h"
+#include "Clase.h"
 
 using namespace std;
 
@@ -41,4 +42,7 @@ public:
     void eliminarInstructor();
     void crearClaseGrupal();
     void matricularClienteAClase();
+    //mas metodos utiles
+    void mostrarRutinaCliente();
+    void mostrarClases();
 };

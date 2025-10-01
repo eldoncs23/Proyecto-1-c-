@@ -17,7 +17,8 @@ private:
     string rutinaActual;
 
     Historial* historial;
-
+    int clasesMatriculadas[3]; // 3 como maximo establecido por el sistema
+    int cantidadClasesMatriculadas;
 public:
     Cliente();
     Cliente(string cedula, string nombre, string telefono, string correo,
@@ -33,7 +34,7 @@ public:
     string getSexo() const;
     string getFechaInscripcion() const;
     string getRutinaActual() const;
-
+    
     void setTelefono(const string& t) { telefono = t; }
     void setCorreo(const string& c) { correo = c; }
     void setRutinaActual(const string& r) { rutinaActual = r; }
@@ -43,5 +44,12 @@ public:
 
     // mostrar
     void mostrar() const;
+
+    // validaciones
+    bool puedeMatricular() const;
+    void matricularClase(int idClase);
+    int getClase(int index) const;
+    int getCantidadClases() const;
+    bool tieneRutina() const;
 };
 

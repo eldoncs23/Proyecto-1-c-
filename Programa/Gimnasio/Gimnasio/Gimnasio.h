@@ -14,7 +14,7 @@ private:
     int capacidadSucursales;
 
 public:
-    Gimnasio();
+    
     Gimnasio(const string& nombre, int maxSucursales = 30);
     ~Gimnasio();
 

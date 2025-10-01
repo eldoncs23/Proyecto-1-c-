@@ -35,7 +35,14 @@ bool ColeccionClientes::eliminarCliente(const string& cedula) {
 
 Cliente* ColeccionClientes::buscarCliente(const string& cedula) {
     for (int i = 0; i < cantidad; ++i) {
+        cout << "DEBUG -> comparando [" << clientes[i]->getCedula() << "] con [" << cedula << "]\n";
         if (clientes[i]->getCedula() == cedula) return clientes[i];
     }
     return nullptr;
+}
+
+Cliente* ColeccionClientes::getClientePorIndice(int index) const
+{
+    if (index < 0 || index >= cantidad) return nullptr;
+    return clientes[index];
 }

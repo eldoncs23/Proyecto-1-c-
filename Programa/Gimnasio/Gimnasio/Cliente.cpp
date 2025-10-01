@@ -12,9 +12,11 @@ Cliente::Cliente() {
     fechaInscripcion = "";
     rutinaActual = "";
     historial = new Historial();
+    cantidadClasesMatriculadas = 0;
+    for (int i = 0; i < 3; ++i) clasesMatriculadas[i] = -1;
 }
 
-Cliente::Cliente(string nombre, string cedula, string telefono, string correo,
+Cliente::Cliente(string cedula, string nombre, string telefono, string correo,
     string fechaNacimiento, string sexo, string fechaInscripcion) {
     this->nombre = nombre;
     this->cedula = cedula;
@@ -25,6 +27,9 @@ Cliente::Cliente(string nombre, string cedula, string telefono, string correo,
     this->fechaInscripcion = fechaInscripcion;
     rutinaActual = "";
     historial = new Historial();
+    cantidadClasesMatriculadas = 0;
+    for (int i = 0; i < 3; ++i) clasesMatriculadas[i] = -1;
+
 }
 
 // Destructor
@@ -54,4 +59,31 @@ void Cliente::mostrar() const {
     if (!rutinaActual.empty()) {
         cout << "Rutina actual: " << rutinaActual << "\n";
     }
+}
+
+bool Cliente::puedeMatricular() const
+{
+    return cantidadClasesMatriculadas < 3;;
+}
+
+void Cliente::matricularClase(int idClase)
+{
+    if (cantidadClasesMatriculadas < 3)
+        clasesMatriculadas[cantidadClasesMatriculadas++] = idClase;
+}
+
+int Cliente::getClase(int index) const
+{
+    if (index < 0 || index >= cantidadClasesMatriculadas) return -1;
+    return clasesMatriculadas[index];
+}
+
+int Cliente::getCantidadClases() const
+{
+    return cantidadClasesMatriculadas;
+}
+
+bool Cliente::tieneRutina() const {
+    // verificamos si el primero caracter de la cadena no es 0
+    return rutinaActual[0] != '\0';
 }

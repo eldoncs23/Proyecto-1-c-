@@ -36,7 +36,8 @@ void Interfaz::mostrarMenu() {
         cout << "10. Eliminar instructor" << endl;
         cout << "11. Crear clase grupal" << endl;
         cout << "12. Matricular cliente a clase" << endl;
-        cout << "13. Salir" << endl;
+        cout << "13. Mostrar rutina de cliente" << endl;
+        cout << "15. Salir" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -53,10 +54,11 @@ void Interfaz::mostrarMenu() {
         case 10: eliminarInstructor(); break;
         case 11: crearClaseGrupal(); break;
         case 12: matricularClienteAClase(); break;
-        case 13: cout << "Saliendo del sistema..." << endl; break;
+        case 13: mostrarRutinaCliente(); break;
+        case 15: cout << "Saliendo del sistema..." << endl; break;
         default: cout << "Opcion invalida" << endl; break;
         }
-    } while (opcion != 13);
+    } while (opcion != 15);
 }
 
 // ========================
@@ -87,31 +89,36 @@ void Interfaz::agregarInstructor() {
     cout << "Telefono: "; cin >> telefono;
     cout << "Correo: "; cin >> correo;
     cout << "Fecha de nacimiento: "; cin >> fechaNac;
-    cout << "Especialidades y su código: " << endl;
-    cout << "CrossFit  - 5001" << endl;
-    cout << "HIIT      - 5002" << endl;
-    cout << "TRX       - 5003" << endl;
-    cout << "Pesas     - 5004" << endl;
-    cout << "Spinning  - 5005" << endl;
-    cout << "Cardio    - 5006" << endl;
-    cout << "Yoga      - 5007" << endl;
-    cout << "Zumba     - 5008" << endl;
-    cout << "Especialidad (5001-5008): "; cin >> especialidad;
 
-    // pedimos sucursal
+    cout << "Especialidades y su código:" << endl;
+    cout << "CrossFit  - 5001\nHIIT      - 5002\nTRX       - 5003\nPesas     - 5004\n";
+    cout << "Spinning  - 5005\nCardio    - 5006\nYoga      - 5007\nZumba     - 5008\n";
+
+    bool valido = false;
+    do {
+        cout << "Especialidad (5001-5008) o 0 para cancelar: ";
+        cin >> especialidad;
+        if (especialidad >= 5001 && especialidad <= 5008) {
+            valido = true;
+        }
+        else if (especialidad == 0) {
+            cout << "Creacion de instructor cancelada.\n";
+            return;
+        }
+        else {
+            cout << "Codigo invalido. Vuelva a ingresar.\n";
+        }
+    } while (!valido);
+
     string codSucursal;
     cout << "Codigo de sucursal: "; cin >> codSucursal;
     Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
-    if (suc) {
-        int* especialidades = new int[1];
-            especialidades[0] = especialidad;
-        Instructor* inst = new Instructor(cedula, nombre, telefono, correo, fechaNac, especialidades,1);
-        suc->agregarInstructor(inst);
-        cout << "Instructor agregado con exito a la sucursal!" << endl;
-    }
-    else {
-        cout << "Sucursal no encontrada." << endl;
-    }
+    if (!suc) { cout << "Sucursal no encontrada.\n"; return; }
+
+    int* especialidadesArr = new int[1] { especialidad };
+    Instructor* inst = new Instructor(cedula, nombre, telefono, correo, fechaNac, especialidadesArr, 1);
+    suc->agregarInstructor(inst);
+    cout << "Instructor agregado con exito a la sucursal!" << endl;
 }
 
 void Interfaz::asignarClienteAInstructor() {
@@ -278,28 +285,34 @@ void Interfaz::eliminarInstructor() {
 }
 
 void Interfaz::crearClaseGrupal() {
-    string codSucursal;
-    int tipo;
-    string cedulaInst;
+    string codSucursal, cedulaInst, nombreClase;
+    int tipoClase, grupo;
 
     cout << "\n-- CREAR CLASE GRUPAL --" << endl;
     cout << "Codigo sucursal: "; cin >> codSucursal;
-    cout << "Tipo de clase (5001-5008): "; cin >> tipo;
+    cout << "Tipo de clase (5001-5008): "; cin >> tipoClase;
     cout << "Cedula del instructor: "; cin >> cedulaInst;
+    cout << "Nombre de la clase: "; cin.ignore(); getline(cin, nombreClase);
+    cout << "Numero de grupo (1-10): "; cin >> grupo;
 
     Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
-    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+    if (!suc) {
+        cout << "Sucursal no encontrada." << endl;
+        return;
+    }
 
-    suc->crearClaseGrupal(tipo, cedulaInst);
+
+    suc->crearClaseGrupal(tipoClase, cedulaInst, nombreClase, grupo);
 }
 
 void Interfaz::matricularClienteAClase() {
     string codSucursal, cedulaCli;
-    int idClase;
+    int idClase, grupo;
 
     cout << "\n-- MATRICULAR CLIENTE A CLASE --" << endl;
     cout << "Codigo sucursal: "; cin >> codSucursal;
     cout << "ID clase grupal: "; cin >> idClase;
+    cout << "Número de grupo a matricular: "; cin >> grupo;
     cout << "Cedula cliente: "; cin >> cedulaCli;
 
     Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
@@ -308,6 +321,80 @@ void Interfaz::matricularClienteAClase() {
     Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
     if (!cli) { cout << "Cliente no encontrado." << endl; return; }
 
-    suc->matricularClienteEnClase(idClase, cli);
+    suc->matricularClienteEnClase(idClase,grupo, cli);
+}
+//agregar al menu
+void Interfaz::mostrarRutinaCliente() {
+    string codSucursal, cedulaCli;
+    cout << "\n-- MOSTRAR RUTINA DEL CLIENTE --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
+    if (!cli) { cout << "Cliente no encontrado." << endl; return; }
+
+    string rutina = cli->getRutinaActual();
+    if (!cli->tieneRutina())
+        cout << "El cliente no tiene ninguna rutina asignada.\n";
+    else
+        cout << "Rutina actual del cliente " << cli->getNombre() << ":\n" << rutina << endl;
+
+    cout << "\nPresione ENTER para continuar...";
+    cin.ignore(); // Ignorar el salto de línea pendiente
+    cin.get();    // Esperar la tecla Enter
 }
 
+//mostrar clase opcion 14 del menu
+void Interfaz::mostrarClases() {
+    string codSucursal, cedulaInst;
+    cout << "\n-- MOSTRAR CLASES DEL INSTRUCTOR --" << endl;
+    cout << "Ingrese código de sucursal: "; cin >> codSucursal;
+    cout << "Ingrese cédula del instructor: "; cin >> cedulaInst;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) {
+        cout << "Sucursal no encontrada." << endl;
+        return;
+    }
+
+    Instructor* inst = suc->buscarInstructor(cedulaInst);
+    if (!inst) {
+        cout << "Instructor no encontrado." << endl;
+        return;
+    }
+
+    if (!suc->verificarClasesInstructor(cedulaInst)) {
+        cout << "Este instructor no tiene clases asignadas en la sucursal.\n";
+        return;
+    }
+
+    Clase** clasesInst;
+    int cantidad = suc->getClasesPorInstructor(cedulaInst, clasesInst);
+
+    cout << "\nClases del instructor " << inst->getNombre() << ":\n";
+    for (int i = 0; i < cantidad; ++i) {
+        Clase* c = clasesInst[i];
+        cout << "Clase ID: " << c->getId()
+            << " Grupo: " << (c->getGrupo() < 10 ? "0" : "") << c->getGrupo()
+            << " | Nombre: " << c->getNombre() << endl;
+
+        if (c->getCantidadClientes() == 0) {
+            cout << "  No hay clientes matriculados.\n";
+        }
+        else {
+            cout << "  Clientes matriculados:\n";
+            for (int j = 0; j < c->getCantidadClientes(); ++j) {
+                Cliente* cli = c->getCliente(j);
+                cout << "    - " << cli->getNombre() << " | " << cli->getCedula() << endl;
+            }
+        }
+    }
+
+    delete[] clasesInst; // liberar arreglo temporal
+    cout << "\nPresione ENTER para continuar...";
+    cin.ignore();
+    cin.get();
+}

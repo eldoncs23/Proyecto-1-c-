@@ -44,7 +44,7 @@ public:
     bool tieneEspecialidad(int idEsp);
     // crear reporte (el instructor pide datos por consola)
     void crearReporteParaCliente(Cliente* c);
-    void asignarRutina(Cliente* cli, string rutinaActual);// rutinas
+    //void asignarRutina(Cliente* cli, string rutinaActual);// rutinas
     void crearRutinaParaCliente(Cliente* c);
     void modificarRutinaDeCliente(Cliente* c);
     // gestión clientes

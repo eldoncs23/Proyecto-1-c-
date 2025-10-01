@@ -7,28 +7,39 @@ Sucursal::Sucursal(string codigo, string provincia, string canton, string correo
     this->canton = canton;
     this->correo = correo;
     this->telefono = telefono;
-    maxInstructores = 50;
-    clientes = new ColeccionClientes();
-    capacidadInstructores = maxInstructores;
-    instructores = new Instructor * [capacidadInstructores];
-    cantidadInstructores = 0;
-    for (int i = 0; i < capacidadInstructores; ++i) instructores[i] = nullptr;
 
-    maxClases = 8;
-    clasesIDs = new int[maxClases];
-    clasesInstructorCedula = new string[maxClases];
+    clientes = new ColeccionClientes();
+
+    // Inicialización instructores
+    maxInstructores = 50;
+    cantidadInstructores = 0;
+    instructores = new Instructor * [maxInstructores];
+    for (int i = 0; i < maxInstructores; ++i)
+        instructores[i] = nullptr;
+
+    // Inicialización clases
+    maxClases = 10;
     cantidadClases = 0;
+    clases = new Clase * [maxClases];
+    for (int i = 0; i < maxClases; ++i){
+        clases[i] = nullptr;
+    }
 }
 
 // Destructor
 Sucursal::~Sucursal() {
     delete clientes;
-    for (int i = 0; i < cantidadInstructores; ++i) delete instructores[i];
-    delete[] instructores;
-    delete[] clasesIDs;
-    delete[] clasesInstructorCedula;
-}
 
+    for (int i = 0; i < cantidadInstructores; ++i) {
+        delete instructores[i];
+    }
+    delete[] instructores;
+
+    for (int i = 0; i < cantidadClases; ++i) {
+        delete clases[i];
+    }
+    delete[] clases;
+}
 // Getters
 
 string Sucursal::getCodigo() const { return codigo; }
@@ -51,7 +62,7 @@ void Sucursal::setTelefono(string telefono) { this->telefono = telefono; }
 void Sucursal::agregarInstructor(Instructor* inst) {
     if (cantidadInstructores < maxInstructores) {
         instructores[cantidadInstructores++] = inst;
-        cout << "DEBUG -> Instructor agregado con cedula: [" << inst->getCedula() << "]" << endl;
+        cout << "Instructor agregado con cedula: [" << inst->getCedula() << "]" << endl;
     }
     else {
         cout << "No se pueden agregar más instructores a la sucursal." << endl;
@@ -62,7 +73,9 @@ bool Sucursal::eliminarInstructor(const string& cedula) {
     for (int i = 0; i < cantidadInstructores; ++i) {
         if (instructores[i]->getCedula() == cedula) {
             delete instructores[i];
-            for (int j = i; j < cantidadInstructores - 1; ++j) instructores[j] = instructores[j + 1];
+            for (int j = i; j < cantidadInstructores - 1; ++j) {
+                instructores[j] = instructores[j + 1];
+            }
             instructores[cantidadInstructores - 1] = nullptr;
             --cantidadInstructores;
             return true;
@@ -72,40 +85,123 @@ bool Sucursal::eliminarInstructor(const string& cedula) {
 }
 
 Instructor* Sucursal::buscarInstructor(string cedula) {
-    string cedulaLimpia = cedula;
-    cedulaLimpia.erase(remove(cedulaLimpia.begin(), cedulaLimpia.end(), '\n'), cedulaLimpia.end());
-    cedulaLimpia.erase(remove(cedulaLimpia.begin(), cedulaLimpia.end(), '\r'), cedulaLimpia.end());
-
-    for (int i = 0; i < cantidadInstructores; i++) {
-        string cedulaInst = instructores[i]->getCedula();
-        cedulaInst.erase(remove(cedulaInst.begin(), cedulaInst.end(), '\n'), cedulaInst.end());
-        cedulaInst.erase(remove(cedulaInst.begin(), cedulaInst.end(), '\r'), cedulaInst.end());
-
-        cout << "DEBUG -> comparando [" << cedulaInst << "] con [" << cedulaLimpia << "]" << endl;
-
-        if (cedulaInst == cedulaLimpia) {
-            return instructores[i]; // Devuelve si coincide
+    for (int i = 0; i < cantidadInstructores; ++i) {
+        if (instructores[i]->getCedula() == cedula) {
+            return instructores[i];
         }
     }
-    return nullptr; // No encontrado
+    return nullptr;
 }
 
-void Sucursal::crearClaseGrupal(int idClase, const string& cedulaInstructor) {
-    if (cantidadClases >= maxClases) {
-        cout << "No se pueden crear más clases grupales en esta sucursal.\n";
+// Crear clase grupal
+void Sucursal::crearClaseGrupal(int idClase, const string& cedulaInstructor,
+    const string& nombreClase, int grupo) {
+
+    Instructor* inst = buscarInstructor(cedulaInstructor);
+    if (!inst) {
+        cout << "Instructor no encontrado.\n";
         return;
     }
-    clasesIDs[cantidadClases] = idClase;
-    clasesInstructorCedula[cantidadClases] = cedulaInstructor;
-    ++cantidadClases;
-    cout << "Clase grupal " << idClase << " creada y asignada al instructor " << cedulaInstructor << ".\n";
+    if (!inst->tieneEspecialidad(idClase)) {
+        cout << "El instructor no tiene la especialidad requerida para esta clase.\n";
+        return;
+    }
+    if (cantidadClases >= maxClases) {
+        cout << "No se pueden crear más clases grupales en esta sucursal, máximo alcanzado (10).\n";
+        return;
+    }
+
+    Clase* nueva = new Clase(idClase, grupo, nombreClase, inst);
+    clases[cantidadClases++] = nueva;
+
+    cout << "Clase grupal '" << nombreClase << "' creada y asignada al instructor "
+        << cedulaInstructor << ".\n";
 }
 
-void Sucursal::matricularClienteEnClase(int idClase, Cliente* cli) {
-    int idx = -1;
-    for (int i = 0; i < cantidadClases; ++i) if (clasesIDs[i] == idClase) { idx = i; break; }
-    if (idx == -1) { cout << "Clase no encontrada.\n"; return; }
-    // implementación simple: no guardamos lista detallada de inscritos (puede ampliarse)
-    cout << "Matriculando cliente " << cli->getNombre() << " en clase " << idClase << " (Instructor: " << clasesInstructorCedula[idx] << ").\n";
+Clase* Sucursal::buscarClasePorID(int idClase) const {
+    for (int i = 0; i < cantidadClases; ++i) {
+        if (clases[i]->getId() == idClase) {
+            return clases[i];
+        }
+    }
+    return nullptr;
+}
+
+// Matricular cliente en clase
+void Sucursal::matricularClienteEnClase(int idClase, int grupo, Cliente* cli) {
+    if (!cli) return;
+
+    Clase* c = nullptr;
+    for (int i = 0; i < cantidadClases; ++i) {
+        if (clases[i]->getId() == idClase && clases[i]->getGrupo() == grupo) {
+            c = clases[i];
+            break;
+        }
+    }
+
+    if (!c) {
+        cout << "Clase no encontrada (ID o grupo incorrectos).\n";
+        return;
+    }
+
+    if (!cli->puedeMatricular()) {
+        cout << "El cliente ya tiene el máximo de 3 clases.\n";
+        return;
+    }
+
+    c->agregarCliente(cli);
+    cli->matricularClase(idClase);
+
+    cout << "Cliente " << cli->getNombre() << " matriculado en clase "
+        << idClase << " (Grupo " << grupo << ", Instructor: "
+        << c->getInstructor()->getNombre() << ")\n";
+}
+
+
+bool Sucursal::verificarClasesInstructor(const string& cedulaInst) const {
+    for (int i = 0; i < cantidadClases; ++i) {
+        if (clases[i]->getInstructor()->getCedula() == cedulaInst) {
+            return true;
+        }
+    }
+    return false;
+}
+// Obtener clases de un instructor
+int Sucursal::getClasesPorInstructor(const string& cedulaInst, Clase**& resultado) const {
+    int count = 0;
+    resultado = new Clase * [cantidadClases]; // reservar máximo posible
+    for (int i = 0; i < cantidadClases; ++i) {
+        if (clases[i]->getInstructor()->getCedula() == cedulaInst) {
+            resultado[count++] = clases[i];
+        }
+    }
+    return count;
+}
+void Sucursal::mostrarClases() const {
+    if (cantidadClases == 0) {
+        cout << "No hay clases registradas en la sucursal.\n";
+        return;
+    }
+
+    for (int i = 0; i < cantidadClases; ++i) {
+        Clase* c = clases[i];
+        cout << "Clase ID: " << c->getId()
+            << " | Grupo: " << (c->getGrupo() < 10 ? "0" : "") << c->getGrupo()
+            << " | Nombre: " << c->getNombre() << "\n";
+        cout << "Instructor: "
+            << (c->getInstructor() ? c->getInstructor()->getNombre() : "N/A") << "\n";
+        cout << "Clientes matriculados:\n";
+
+        if (c->getCantidadClientes() == 0) {
+            cout << " - Ninguno\n";
+        }
+        else {
+            for (int j = 0; j < c->getCantidadClientes(); ++j) {
+                Cliente* cli = c->getCliente(j);
+                cout << " - " << cli->getNombre() << " | " << cli->getCedula() << "\n";
+            }
+        }
+        cout << "------------------------\n";
+    }
 }
 

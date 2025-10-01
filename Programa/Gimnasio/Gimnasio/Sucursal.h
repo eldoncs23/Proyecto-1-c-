@@ -5,27 +5,30 @@
 #include "Cliente.h"
 #include "Instructor.h"
 #include "ColeccionClientes.h"
+#include "Clase.h"
 using namespace std;
 
 class Sucursal {
 private:
+    // Datos de identificación
     string codigo;
     string provincia;
     string canton;
     string correo;
     string telefono;
 
+    // Clientes
     ColeccionClientes* clientes;
-    Instructor** instructores;
-    int cantidadInstructores;
-    int capacidadInstructores;
 
-    // Para clases grupales (implementación simple para compilar)
-    int* clasesIDs;
-    string* clasesInstructorCedula;
+    // Instructores
+    Instructor** instructores;
+    int maxInstructores;
+    int cantidadInstructores;
+
+    // Clases
+    Clase** clases;
     int cantidadClases;
     int maxClases;
-    int maxInstructores;
 
 public:
     // Constructor y destructor
@@ -39,6 +42,9 @@ public:
     string getCanton() const;
     string getCorreo() const;
     string getTelefono() const;
+    ColeccionClientes* getColeccionClientes() const;
+    int getCantidadInstructores() const;
+
     void setNombre(string nombre);
     void setCodigo(string codigo);
     void setProvincia(string provincia);
@@ -50,10 +56,14 @@ public:
     void agregarInstructor(Instructor* inst);
     bool eliminarInstructor(const string& cedula);
     Instructor* buscarInstructor(string cedula);
-    ColeccionClientes* getColeccionClientes() const;
-    int getCantidadInstructores() const;
+
 
     // clases grupales (simplificado)
-    void crearClaseGrupal(int idClase, const string& cedulaInstructor);
-    void matricularClienteEnClase(int idClase, Cliente* cli);
+    void crearClaseGrupal(int idClase, const string& cedulaInstructor,
+        const string& nombreClase, int grupo);
+    Clase* buscarClasePorID(int idClase) const;
+    void matricularClienteEnClase(int idClase, int grupo, Cliente* cli);
+    bool verificarClasesInstructor(const string& cedulaInst) const;
+    int getClasesPorInstructor(const string& cedulaInst, Clase**& resultado) const;
+    void mostrarClases() const;
 };
