@@ -1,53 +1,55 @@
 ﻿#include "Historial.h"
 
-// Constructor
-Historial::Historial() {
-    capacidadMax = 10; // máximo 10 reportes por cliente
+Historial::Historial(int maxReportes) {
+    if (maxReportes <= 0) maxReportes = 10;
+    capacidad = maxReportes;
     cantidad = 0;
-    reportes = new Reporte * [capacidadMax];
+    reportes = new Reporte * [capacidad];
+    for (int i = 0; i < capacidad; ++i) reportes[i] = nullptr;
 }
 
-// Destructor
 Historial::~Historial() {
-    for (int i = 0; i < cantidad; i++) {
-        delete reportes[i];
-    }
+    vaciarHistorial();
     delete[] reportes;
 }
 
-// Agregar reporte
-bool Historial::agregarReporte(Reporte* rep) {
-    if (cantidad >= capacidadMax) return false;
-    reportes[cantidad++] = rep;
+bool Historial::agregarReporte(Reporte* r) {
+    if (!r) return false;
+    if (cantidad >= capacidad) return false;
+    reportes[cantidad++] = r;
     return true;
 }
 
-// Eliminar reporte por posición
-bool Historial::eliminarReporte(int index) {
-    if (index < 0 || index >= cantidad) return false;
-    delete reportes[index];
-    for (int i = index; i < cantidad - 1; i++) {
-        reportes[i] = reportes[i + 1];
-    }
-    cantidad--;
+bool Historial::eliminarReporte(int indice) {
+    if (indice < 0 || indice >= cantidad) return false;
+    delete reportes[indice];
+    for (int i = indice; i < cantidad - 1; ++i) reportes[i] = reportes[i + 1];
+    reportes[cantidad - 1] = nullptr;
+    --cantidad;
     return true;
 }
 
-// Vaciar historial
 void Historial::vaciarHistorial() {
-    for (int i = 0; i < cantidad; i++) {
+    for (int i = 0; i < cantidad; ++i) {
         delete reportes[i];
+        reportes[i] = nullptr;
     }
     cantidad = 0;
 }
 
-// Obtener reporte
-Reporte* Historial::getReporte(int index) const {
-    if (index < 0 || index >= cantidad) return nullptr;
-    return reportes[index];
+void Historial::mostrarReportes() const {
+    if (cantidad == 0) {
+        cout << "No hay reportes registrados.\n";
+        return;
+    }
+    for (int i = 0; i < cantidad; ++i) {
+        cout << "Reporte " << i + 1 << ":\n";
+        reportes[i]->mostrarReporte();
+    }
 }
 
-// Cantidad de reportes
-int Historial::getCantidad() const {
-    return cantidad;
+Reporte* Historial::getUltimoReporte() const {
+    if (cantidad == 0) return nullptr;
+    return reportes[cantidad - 1];
 }
+int Historial::getCantidad() const { return cantidad; }

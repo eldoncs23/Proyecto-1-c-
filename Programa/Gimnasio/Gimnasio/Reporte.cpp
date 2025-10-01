@@ -1,4 +1,8 @@
 #include "Reporte.h"
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
 
 // Constructores
 Reporte::Reporte() {
@@ -10,6 +14,10 @@ Reporte::Reporte() {
     edadMetabolica = 0;
     cintura = cadera = pecho = muslo = 0;
     imc = proteinaDiaria = vasosAgua = 0;
+    proteinaDiaria = 0.0;
+    vasosAgua = 0;
+    comentario = "";
+
 }
 
 Reporte::Reporte(string fecha, string nombreCliente, string cedulaCliente, string nombreInstructor,
@@ -31,6 +39,10 @@ Reporte::Reporte(string fecha, string nombreCliente, string cedulaCliente, strin
     this->pecho = pecho;
     this->muslo = muslo;
     imc = proteinaDiaria = vasosAgua = 0;
+    proteinaDiaria = 0.0;
+    vasosAgua = 0;
+    comentario = "";
+    calcularIMC();
 }
 
 // Setters
@@ -67,22 +79,43 @@ double Reporte::getMuslo() const { return muslo; }
 
 // Cálculos
 void Reporte::calcularIMC() {
-    if (estatura > 0)
+    if (estatura > 0.0)
         imc = peso / (estatura * estatura);
     else
-        imc = 0;
+        imc = 0.0;
 }
 double Reporte::getIMC() const { return imc; }
 
 void Reporte::calcularProteinaYAgua(string sexo, bool haceEjercicio) {
-    if (sexo == "Hombre") {
-        proteinaDiaria = (haceEjercicio) ? peso * 2.0 : peso * 0.8;
+    double factor = 0.8;
+    if (haceEjercicio) {
+        if (!sexo.empty() && (sexo[0] == 'M' || sexo[0] == 'm')) factor = 1.8; // ejemplo
+        else factor = 1.7;
     }
-    else {
-        proteinaDiaria = (haceEjercicio) ? peso * 1.8 : peso * 0.8;
-    }
-    vasosAgua = peso / 7.0;
+    proteinaDiaria = peso * factor;
+    // vasos de 250 ml = peso / 7 (redondeado)
+    vasosAgua = static_cast<int>(ceil(peso / 7.0));
 }
 
 double Reporte::getProteinaDiaria() const { return proteinaDiaria; }
 double Reporte::getVasosAgua() const { return vasosAgua; }
+
+void Reporte::mostrarReporte() const {
+    cout << "---- REPORTE ----\n";
+    cout << "Fecha: " << fecha << "\n";
+    cout << "Cliente: " << nombreCliente << " (ID: " << cedulaCliente << ")\n";
+    cout << "Instructor: " << nombreInstructor << "\n";
+    cout << fixed << setprecision(2);
+    cout << "Peso: " << peso << " kg\n";
+    cout << "Estatura: " << estatura << " m\n";
+    cout << "IMC: " << imc << "\n";
+    cout << "Porc. Grasa: " << porcentajeGrasa << "%\n";
+    cout << "Porc. Musculo: " << porcentajeMusculo << "%\n";
+    cout << "Grasa visceral: " << grasaVisceral << "%\n";
+    cout << "Edad metabolica: " << edadMetabolica << "\n";
+    cout << "Medidas (cintura/cadera/pecho/muslo): " << cintura << " / " << cadera << " / " << pecho << " / " << muslo << "\n";
+    cout << "Proteina diaria aprox: " << proteinaDiaria << " g\n";
+    cout << "Vasos 250ml recomendados: " << vasosAgua << "\n";
+    if (!comentario.empty()) cout << "Comentario: " << comentario << "\n";
+    cout << "-----------------\n";
+}

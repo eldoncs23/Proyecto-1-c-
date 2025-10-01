@@ -1,5 +1,5 @@
-#define REPORTE_H
 #pragma once
+#define REPORTE_H
 #include <iostream>
 #include <string>
 using namespace std;
@@ -16,10 +16,14 @@ private:
     double porcentajeMusculo;
     double grasaVisceral;
     int edadMetabolica;
-    double cintura, cadera, pecho, muslo;
+    double cintura;
+    double cadera;
+    double pecho;
+    double muslo;
     double imc;
     double proteinaDiaria;
-    double vasosAgua;
+    int vasosAgua;
+    string comentario;
 
 public:
     // Constructores
@@ -44,6 +48,7 @@ public:
     void setCadera(double cadera);
     void setPecho(double pecho);
     void setMuslo(double muslo);
+    void setComentario(const string& c) { comentario = c; }
 
     // Getters
     string getFecha() const;
@@ -60,6 +65,7 @@ public:
     double getCadera() const;
     double getPecho() const;
     double getMuslo() const;
+    string getComentario() const { return comentario; }
 
     // Cálculos
     void calcularIMC();
@@ -67,4 +73,7 @@ public:
     void calcularProteinaYAgua(string sexo, bool haceEjercicio);
     double getProteinaDiaria() const;
     double getVasosAgua() const;
+
+    // mostrar
+    void mostrarReporte() const;
 };

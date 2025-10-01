@@ -1,3 +1,4 @@
+#pragma once
 #include "Cliente.h"
 
 // Constructores
@@ -31,15 +32,6 @@ Cliente::~Cliente() {
     delete historial;
 }
 
-// Setters
-void Cliente::setNombre(string nombre) { this->nombre = nombre; }
-void Cliente::setCedula(string cedula) { this->cedula = cedula; }
-void Cliente::setTelefono(string telefono) { this->telefono = telefono; }
-void Cliente::setCorreo(string correo) { this->correo = correo; }
-void Cliente::setFechaNacimiento(string fechaNacimiento) { this->fechaNacimiento = fechaNacimiento; }
-void Cliente::setSexo(string sexo) { this->sexo = sexo; }
-void Cliente::setFechaInscripcion(string fechaInscripcion) { this->fechaInscripcion = fechaInscripcion; }
-void Cliente::setRutinaActual(string rutina) { rutinaActual = rutina; }
 
 // Getters
 string Cliente::getNombre() const { return nombre; }
@@ -54,3 +46,12 @@ string Cliente::getRutinaActual() const { return rutinaActual; }
 // Historial
 Historial* Cliente::getHistorial() const { return historial; }
 
+void Cliente::mostrar() const {
+    cout << "Cliente: " << nombre << " | Cedula: " << cedula << "\n";
+    cout << "Telefono: " << telefono << " | Correo: " << correo << "\n";
+    cout << "Fecha Nac.: " << fechaNacimiento << " | Sexo: " << sexo << "\n";
+    cout << "Fecha Inscripcion: " << fechaInscripcion << "\n";
+    if (!rutinaActual.empty()) {
+        cout << "Rutina actual: " << rutinaActual << "\n";
+    }
+}

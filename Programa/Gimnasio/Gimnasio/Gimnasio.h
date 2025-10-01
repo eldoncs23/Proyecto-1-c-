@@ -1,8 +1,9 @@
-
+#pragma once
 #define GIMNASIO_H
 
 #include <iostream>
 #include "Sucursal.h"
+#include <string>
 using namespace std;
 
 class Gimnasio {
@@ -14,7 +15,7 @@ private:
 
 public:
     Gimnasio();
-    Gimnasio(string nombre, int maxSucursales = 30);
+    Gimnasio(const string& nombre, int maxSucursales = 30);
     ~Gimnasio();
 
     // Getters
@@ -27,5 +28,5 @@ public:
 
     // Métodos
     bool agregarSucursal(Sucursal* suc);
-    Sucursal* buscarSucursalPorCodigo(string codigo);
+    Sucursal* buscarSucursal(string codigo);
 };

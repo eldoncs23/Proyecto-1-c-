@@ -1,11 +1,20 @@
+/*
+ * Proyecto 1 - Programación 1
+ * Universidad Nacional de Costa Rica
+ * Nombre del estudiante: Eldon Caldwell Salazar
+ * Nombre del profesor: Legner
+ * Fecha de entrega actualizada: 30/9/2025
+ * Descripción: Este proyecto aborda los temas de programación 1 en C++,
+ *              incluyendo memoria dinamica, punteros, colecciones, vectores dinamicos.
+ */
 #include "Interfaz.h"
 
-Interfaz::Interfaz() {
-    gimnasio = new Gimnasio("PowerLab");
+Interfaz::Interfaz(Gimnasio* gym) {
+    this->gimnasio = gym;
 }
 
 Interfaz::~Interfaz() {
-    delete gimnasio;
+    
 }
 
 // ========================
@@ -55,17 +64,16 @@ void Interfaz::mostrarMenu() {
 // ========================
 
 void Interfaz::agregarSucursal() {
-    string codigo, provincia, canton, correo, telefono, nombre;
+    string codigo, provincia, canton, correo, telefono;
 
     cout << "\n-- CREAR SUCURSAL --" << endl;
-    cout << "Nombre: "; cin >> nombre;
     cout << "Codigo: "; cin >> codigo;
     cout << "Provincia: "; cin >> provincia;
     cout << "Canton: "; cin >> canton;
     cout << "Correo: "; cin >> correo;
     cout << "Telefono: "; cin >> telefono;
 
-    gimnasio->agregarSucursal(new Sucursal(nombre,codigo, provincia, canton, correo, telefono));
+    gimnasio->agregarSucursal(new Sucursal(codigo, provincia, canton, correo, telefono));
     cout << "Sucursal creada con exito!" << endl;
 }
 
@@ -79,6 +87,15 @@ void Interfaz::agregarInstructor() {
     cout << "Telefono: "; cin >> telefono;
     cout << "Correo: "; cin >> correo;
     cout << "Fecha de nacimiento: "; cin >> fechaNac;
+    cout << "Especialidades y su código: " << endl;
+    cout << "CrossFit  - 5001" << endl;
+    cout << "HIIT      - 5002" << endl;
+    cout << "TRX       - 5003" << endl;
+    cout << "Pesas     - 5004" << endl;
+    cout << "Spinning  - 5005" << endl;
+    cout << "Cardio    - 5006" << endl;
+    cout << "Yoga      - 5007" << endl;
+    cout << "Zumba     - 5008" << endl;
     cout << "Especialidad (5001-5008): "; cin >> especialidad;
 
     // pedimos sucursal
@@ -86,7 +103,9 @@ void Interfaz::agregarInstructor() {
     cout << "Codigo de sucursal: "; cin >> codSucursal;
     Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
     if (suc) {
-        Instructor* inst = new Instructor(cedula, nombre, telefono, correo, fechaNac, especialidad);
+        int* especialidades = new int[1];
+            especialidades[0] = especialidad;
+        Instructor* inst = new Instructor(cedula, nombre, telefono, correo, fechaNac, especialidades,1);
         suc->agregarInstructor(inst);
         cout << "Instructor agregado con exito a la sucursal!" << endl;
     }
@@ -102,8 +121,13 @@ void Interfaz::asignarClienteAInstructor() {
 
     cout << "\n-- ASIGNAR CLIENTE A INSTRUCTOR --" << endl;
     cout << "Codigo de sucursal: "; cin >> codSucursal;
-    cout << "Cedula del instructor: "; cin >> cedulaInst;
-
+    cout << "Cedula del instructor: ";
+    cin.ignore();
+    getline(cin, cedulaInst);
+    //eliminar espacios
+    cedulaInst.erase(0, cedulaInst.find_first_not_of(" \t\n\r"));
+    cedulaInst.erase(cedulaInst.find_last_not_of(" \t\n\r") + 1);
+    //
     Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
     if (!suc) {
         cout << "Sucursal no encontrada." << endl;
@@ -111,7 +135,7 @@ void Interfaz::asignarClienteAInstructor() {
     }
 
     Instructor* inst = suc->buscarInstructor(cedulaInst);
-    if (!inst) {
+    if (inst == nullptr) {
         cout << "Instructor no encontrado." << endl;
         return;
     }
@@ -286,3 +310,4 @@ void Interfaz::matricularClienteAClase() {
 
     suc->matricularClienteEnClase(idClase, cli);
 }
+

@@ -1,3 +1,4 @@
+#pragma once
 #define SUCURSAL_H
 
 #include <iostream>
@@ -8,7 +9,6 @@ using namespace std;
 
 class Sucursal {
 private:
-    string nombre;
     string codigo;
     string provincia;
     string canton;
@@ -18,12 +18,18 @@ private:
     ColeccionClientes* clientes;
     Instructor** instructores;
     int cantidadInstructores;
-    //int capacidadInstructores;
+    int capacidadInstructores;
+
+    // Para clases grupales (implementación simple para compilar)
+    int* clasesIDs;
+    string* clasesInstructorCedula;
+    int cantidadClases;
+    int maxClases;
+    int maxInstructores;
 
 public:
     // Constructor y destructor
-    Sucursal();
-    Sucursal(string nombre, string codigo, string provincia, string canton, string correo, string telefono);
+    Sucursal(string codigo, string provincia, string canton, string correo, string telefono);
     ~Sucursal();
 
     // Getters y setters
@@ -41,9 +47,13 @@ public:
     void setTelefono(string telefono);
 
     // Métodos
-    bool agregarInstructor(Instructor* inst);
-    bool eliminarInstructorPorCedula(string cedula);
-    Instructor* buscarInstructorPorCedula(string cedula);
+    void agregarInstructor(Instructor* inst);
+    bool eliminarInstructor(const string& cedula);
+    Instructor* buscarInstructor(string cedula);
     ColeccionClientes* getColeccionClientes() const;
     int getCantidadInstructores() const;
+
+    // clases grupales (simplificado)
+    void crearClaseGrupal(int idClase, const string& cedulaInstructor);
+    void matricularClienteEnClase(int idClase, Cliente* cli);
 };

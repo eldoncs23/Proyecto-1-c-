@@ -1,5 +1,5 @@
+#pragma once
 #define INSTRUCTOR_H
-
 #include <iostream>
 #include "Cliente.h"
 #include "Historial.h"
@@ -7,18 +7,23 @@ using namespace std;
 
 class Instructor {
 private:
-    string nombre;
     string cedula;
+    string nombre;
     string telefono;
     string correo;
     string fechaNacimiento;
-    int* especialidades; // vector dinámico de IDs de especialidades
-    int cantEspecialidades;
+
+    int* especialidades; // ids de especialidades
+    int cantidadEspecialidades;
+
+    Cliente** clientesAsignados;
+    int cantidadClientes;
+    int maxClientes;
 
 public:
     // Constructor y destructor
-    Instructor();
-    Instructor(string nombre, string cedula, string telefono, string correo, string fechaNacimiento, int* especialidades, int cantEsp);
+    Instructor(string nombre, string cedula, string telefono, string correo, string fechaNacimiento,
+        int* especialidades, int cantidadEspecialidades);
     ~Instructor();
 
     // Getters
@@ -37,6 +42,13 @@ public:
 
     // Métodos
     bool tieneEspecialidad(int idEsp);
-    void crearReporte(Cliente* cli, string fecha, double peso, double estatura, double porcentajeGrasa, double porcentajeMusculo, double grasaVisceral, int edadMetabolica, double cintura, double cadera, double pecho, double muslo);
-    void asignarRutina(Cliente* cli, string rutinaActual);
+    // crear reporte (el instructor pide datos por consola)
+    void crearReporteParaCliente(Cliente* c);
+    void asignarRutina(Cliente* cli, string rutinaActual);// rutinas
+    void crearRutinaParaCliente(Cliente* c);
+    void modificarRutinaDeCliente(Cliente* c);
+    // gestión clientes
+    bool asignarCliente(Cliente* c);
+    // mostrar
+    void mostrar() const;
 };

@@ -1,53 +1,41 @@
 ﻿#include "ColeccionClientes.h"
 
-// Constructor
 ColeccionClientes::ColeccionClientes(int max) {
     if (max <= 0) max = 50;
-    capacidadMax = max;
+    capacidad = max;
     cantidad = 0;
-    clientes = new Cliente * [capacidadMax];
+    clientes = new Cliente * [capacidad];
+    for (int i = 0; i < capacidad; ++i) clientes[i] = nullptr;
 }
 
-// Destructor
 ColeccionClientes::~ColeccionClientes() {
-    for (int i = 0; i < cantidad; i++) {
-        delete clientes[i];
-    }
+    for (int i = 0; i < cantidad; ++i) delete clientes[i];
     delete[] clientes;
 }
 
-// Agregar cliente
 bool ColeccionClientes::agregarCliente(Cliente* cli) {
-    if (cantidad >= capacidadMax) return false;
+    if (!cli) return false;
+    if (cantidad >= capacidad) return false;
     clientes[cantidad++] = cli;
     return true;
 }
 
-// Eliminar cliente por cédula
-bool ColeccionClientes::eliminarClientePorCedula(string cedula) {
-    for (int i = 0; i < cantidad; i++) {
+bool ColeccionClientes::eliminarCliente(const string& cedula) {
+    for (int i = 0; i < cantidad; ++i) {
         if (clientes[i]->getCedula() == cedula) {
             delete clientes[i];
-            for (int j = i; j < cantidad - 1; j++) {
-                clientes[j] = clientes[j + 1];
-            }
-            cantidad--;
+            for (int j = i; j < cantidad - 1; ++j) clientes[j] = clientes[j + 1];
+            clientes[cantidad - 1] = nullptr;
+            --cantidad;
             return true;
         }
     }
     return false;
 }
 
-// Buscar cliente por cédula
-Cliente* ColeccionClientes::buscarClientePorCedula(string cedula) {
-    for (int i = 0; i < cantidad; i++) {
-        if (clientes[i]->getCedula() == cedula)
-            return clientes[i];
+Cliente* ColeccionClientes::buscarCliente(const string& cedula) {
+    for (int i = 0; i < cantidad; ++i) {
+        if (clientes[i]->getCedula() == cedula) return clientes[i];
     }
     return nullptr;
-}
-
-// Cantidad de clientes
-int ColeccionClientes::getCantidadClientes() const {
-    return cantidad;
 }

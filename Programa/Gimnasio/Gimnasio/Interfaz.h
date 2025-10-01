@@ -1,3 +1,4 @@
+#pragma once
 #define INTERFAZ_H
 
 #include <iostream>
@@ -13,11 +14,11 @@ using namespace std;
 
 class Interfaz {
 private:
-    Gimnasio* gimnasio; // relación de composición con gimnasio
+    Gimnasio* gimnasio; //puntero al gimnasio relación de composición con gimnasio
 
 public:
     // Constructor / destructor
-    Interfaz();
+    Interfaz(Gimnasio* gym);
     ~Interfaz();
 
     // Menú principal
