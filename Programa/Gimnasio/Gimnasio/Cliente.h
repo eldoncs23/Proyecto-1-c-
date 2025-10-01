@@ -43,7 +43,8 @@ public:
     Historial* getHistorial() const;
 
     // mostrar
-    void mostrar() const;
+    void mostrarInfo() const;
+
 
     // validaciones
     bool puedeMatricular() const;

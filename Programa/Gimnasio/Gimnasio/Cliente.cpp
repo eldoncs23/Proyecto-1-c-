@@ -51,14 +51,15 @@ string Cliente::getRutinaActual() const { return rutinaActual; }
 // Historial
 Historial* Cliente::getHistorial() const { return historial; }
 
-void Cliente::mostrar() const {
-    cout << "Cliente: " << nombre << " | Cedula: " << cedula << "\n";
-    cout << "Telefono: " << telefono << " | Correo: " << correo << "\n";
-    cout << "Fecha Nac.: " << fechaNacimiento << " | Sexo: " << sexo << "\n";
-    cout << "Fecha Inscripcion: " << fechaInscripcion << "\n";
-    if (!rutinaActual.empty()) {
-        cout << "Rutina actual: " << rutinaActual << "\n";
-    }
+void Cliente::mostrarInfo() const {
+    cout << "\n--- Informacion de Cliente ---\n";
+    cout << "Cedula: " << cedula << endl;
+    cout << "Nombre: " << nombre << endl;
+    cout << "Telefono: " << telefono << endl;
+    cout << "Correo: " << correo << endl;
+    cout << "Fecha Nacimiento: " << fechaNacimiento << endl;
+    cout << "Sexo: " << sexo << endl;
+    cout << "Fecha Inscripcion: " << fechaInscripcion << endl;
 }
 
 bool Cliente::puedeMatricular() const

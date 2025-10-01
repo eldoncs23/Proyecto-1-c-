@@ -52,7 +52,9 @@ public:
     void setCorreo(string correo);
     void setTelefono(string telefono);
 
-    // Métodos
+    //mostrar sucursal
+    void mostrarInfo()const;
+    // Metodos instructor
     void agregarInstructor(Instructor* inst);
     bool eliminarInstructor(const string& cedula);
     Instructor* buscarInstructor(string cedula);

@@ -45,4 +45,7 @@ public:
     //mas metodos utiles
     void mostrarRutinaCliente();
     void mostrarClases();
+    void mostrarCliente();
+    void mostrarInstructor();
+    void mostrarSucursal();
 };

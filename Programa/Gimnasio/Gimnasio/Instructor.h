@@ -50,5 +50,5 @@ public:
     // gestión clientes
     bool asignarCliente(Cliente* c);
     // mostrar
-    void mostrar() const;
+    void mostrarInfo() const;
 };

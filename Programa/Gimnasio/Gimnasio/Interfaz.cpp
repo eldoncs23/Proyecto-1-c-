@@ -37,7 +37,12 @@ void Interfaz::mostrarMenu() {
         cout << "11. Crear clase grupal" << endl;
         cout << "12. Matricular cliente a clase" << endl;
         cout << "13. Mostrar rutina de cliente" << endl;
-        cout << "15. Salir" << endl;
+        cout << "14. Mostrar clases del instructor" << endl;
+        cout << "15. Mostrar sucursal" << endl;
+        cout << "16. Mostrar instructor" << endl;
+        cout << "17. Mostrar cliente" << endl;
+
+        cout << "18. Salir" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -55,10 +60,15 @@ void Interfaz::mostrarMenu() {
         case 11: crearClaseGrupal(); break;
         case 12: matricularClienteAClase(); break;
         case 13: mostrarRutinaCliente(); break;
-        case 15: cout << "Saliendo del sistema..." << endl; break;
+        case 14: mostrarClases(); break;
+        case 15: mostrarSucursal(); break;
+        case 16: mostrarInstructor(); break;
+        case 17: mostrarCliente(); break;
+        case 18:  break;
+        cout << "Saliendo del sistema..." << endl; break;
         default: cout << "Opcion invalida" << endl; break;
         }
-    } while (opcion != 15);
+    } while (opcion != 18);
 }
 
 // ========================
@@ -347,12 +357,12 @@ void Interfaz::mostrarRutinaCliente() {
     cin.get();    // Esperar la tecla Enter
 }
 
-//mostrar clase opcion 14 del menu
+//mostrar clase opcion 15 del menu
 void Interfaz::mostrarClases() {
     string codSucursal, cedulaInst;
     cout << "\n-- MOSTRAR CLASES DEL INSTRUCTOR --" << endl;
-    cout << "Ingrese código de sucursal: "; cin >> codSucursal;
-    cout << "Ingrese cédula del instructor: "; cin >> cedulaInst;
+    cout << "Ingrese codigo de sucursal: "; cin >> codSucursal;
+    cout << "Ingrese cedula del instructor: "; cin >> cedulaInst;
 
     Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
     if (!suc) {
@@ -378,7 +388,7 @@ void Interfaz::mostrarClases() {
     for (int i = 0; i < cantidad; ++i) {
         Clase* c = clasesInst[i];
         cout << "Clase ID: " << c->getId()
-            << " Grupo: " << (c->getGrupo() < 10 ? "0" : "") << c->getGrupo()
+            << " | Grupo: " << (c->getGrupo() < 10 ? "0" : "") << c->getGrupo()
             << " | Nombre: " << c->getNombre() << endl;
 
         if (c->getCantidadClientes() == 0) {
@@ -388,12 +398,64 @@ void Interfaz::mostrarClases() {
             cout << "  Clientes matriculados:\n";
             for (int j = 0; j < c->getCantidadClientes(); ++j) {
                 Cliente* cli = c->getCliente(j);
-                cout << "    - " << cli->getNombre() << " | " << cli->getCedula() << endl;
+                cout << "    - " << cli->getNombre()
+                    << " | " << cli->getCedula() << endl;
             }
         }
+        cout << "-----------------------------\n";
     }
 
     delete[] clasesInst; // liberar arreglo temporal
+    cout << "\nPresione ENTER para continuar...";
+    cin.ignore();
+    cin.get();
+}
+
+void Interfaz::mostrarSucursal() {
+    string codSucursal;
+    cout << "\n-- MOSTRAR SUCURSAL --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    suc->mostrarInfo();
+    cout << "\nPresione ENTER para continuar...";
+    cin.ignore();
+    cin.get();
+}
+
+void Interfaz::mostrarInstructor() {
+    string codSucursal, cedulaInst;
+    cout << "\n-- MOSTRAR INSTRUCTOR --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula instructor: "; cin >> cedulaInst;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    Instructor* inst = suc->buscarInstructor(cedulaInst);
+    if (!inst) { cout << "Instructor no encontrado." << endl; return; }
+
+    inst->mostrarInfo();
+    cout << "\nPresione ENTER para continuar...";
+    cin.ignore();
+    cin.get();
+}
+
+void Interfaz::mostrarCliente() {
+    string codSucursal, cedulaCli;
+    cout << "\n-- MOSTRAR CLIENTE --" << endl;
+    cout << "Codigo sucursal: "; cin >> codSucursal;
+    cout << "Cedula cliente: "; cin >> cedulaCli;
+
+    Sucursal* suc = gimnasio->buscarSucursal(codSucursal);
+    if (!suc) { cout << "Sucursal no encontrada." << endl; return; }
+
+    Cliente* cli = suc->getColeccionClientes()->buscarCliente(cedulaCli);
+    if (!cli) { cout << "Cliente no encontrado." << endl; return; }
+
+    cli->mostrarInfo();
     cout << "\nPresione ENTER para continuar...";
     cin.ignore();
     cin.get();

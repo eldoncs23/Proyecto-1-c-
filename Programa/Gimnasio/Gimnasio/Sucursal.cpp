@@ -58,6 +58,15 @@ void Sucursal::setCanton(string canton) { this->canton = canton; }
 void Sucursal::setCorreo(string correo) { this->correo = correo; }
 void Sucursal::setTelefono(string telefono) { this->telefono = telefono; }
 
+void Sucursal::mostrarInfo() const {
+    cout << "\n--- Informacion de Sucursal ---\n";
+    cout << "Codigo: " << codigo << endl;
+    cout << "Provincia: " << provincia << endl;
+    cout << "Canton: " << canton << endl;
+    cout << "Correo: " << correo << endl;
+    cout << "Telefono: " << telefono << endl;
+}
+
 // Métodos
 void Sucursal::agregarInstructor(Instructor* inst) {
     if (cantidadInstructores < maxInstructores) {

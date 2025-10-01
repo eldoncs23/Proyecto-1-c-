@@ -151,7 +151,19 @@ void Instructor::modificarRutinaDeCliente(Cliente* c) {
     cout << "Rutina actualizada.\n";
 }
 
-void Instructor::mostrar() const {
-    cout << "Instructor: " << nombre << " | Cedula: " << cedula << " | Telefono: " << telefono << "\n";
+void Instructor::mostrarInfo() const {
+    cout << "\n--- Informacion de Instructor ---\n";
+    cout << "Cedula: " << cedula << endl;
+    cout << "Nombre: " << nombre << endl;
+    cout << "Telefono: " << telefono << endl;
+    cout << "Correo: " << correo << endl;
+    cout << "Fecha Nacimiento: " << fechaNacimiento << endl;
+
+    cout << "Especialidades: ";
+    for (int i = 0; i < cantidadEspecialidades; i++) {
+        cout << especialidades[i];
+        if (i < cantidadEspecialidades - 1) cout << ", ";
+    }
+    cout << endl;
 }
 
